@@ -1,0 +1,12 @@
+F:\omarapi\FacebookClone\FacebookClone.Core\bin\Debug\net9.0\FacebookClone.Core.deps.json
+F:\omarapi\FacebookClone\FacebookClone.Core\bin\Debug\net9.0\FacebookClone.Core.dll
+F:\omarapi\FacebookClone\FacebookClone.Core\bin\Debug\net9.0\FacebookClone.Core.pdb
+F:\omarapi\FacebookClone\FacebookClone.Core\obj\Debug\net9.0\FacebookClone.Core.csproj.AssemblyReference.cache
+F:\omarapi\FacebookClone\FacebookClone.Core\obj\Debug\net9.0\FacebookClone.Core.GeneratedMSBuildEditorConfig.editorconfig
+F:\omarapi\FacebookClone\FacebookClone.Core\obj\Debug\net9.0\FacebookClone.Core.AssemblyInfoInputs.cache
+F:\omarapi\FacebookClone\FacebookClone.Core\obj\Debug\net9.0\FacebookClone.Core.AssemblyInfo.cs
+F:\omarapi\FacebookClone\FacebookClone.Core\obj\Debug\net9.0\FacebookClone.Core.csproj.CoreCompileInputs.cache
+F:\omarapi\FacebookClone\FacebookClone.Core\obj\Debug\net9.0\FacebookClone.Core.dll
+F:\omarapi\FacebookClone\FacebookClone.Core\obj\Debug\net9.0\refint\FacebookClone.Core.dll
+F:\omarapi\FacebookClone\FacebookClone.Core\obj\Debug\net9.0\FacebookClone.Core.pdb
+F:\omarapi\FacebookClone\FacebookClone.Core\obj\Debug\net9.0\ref\FacebookClone.Core.dll

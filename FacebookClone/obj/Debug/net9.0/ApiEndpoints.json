@@ -1,0 +1,66 @@
+[
+  {
+    "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
+    "Method": "GetUserByEmail",
+    "RelativePath": "api/Authentication/GetUserByEmail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "emailFromRequest",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
+    "Method": "Login",
+    "RelativePath": "api/Authentication/Login",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginFromRequest",
+        "Type": "FacebookClone.Core.DTO.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
+    "Method": "SignUp",
+    "RelativePath": "api/Authentication/SignUp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerFromRequest",
+        "Type": "FacebookClone.Core.DTO.RegisterDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
+    "Method": "ValidateOtp",
+    "RelativePath": "api/Authentication/ValidateOtp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "signUpResponseDto",
+        "Type": "FacebookClone.Core.DTO.SignUpResponseDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
