@@ -1,26 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "F:\\omarapi\\FacebookClone\\",
+  "WorkspaceRootPath": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|f:\\omarapi\\facebookclone\\facebookclone\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|solutionrelative:facebookclone\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|f:\\omarapi\\facebookclone\\facebookclone\\controllers\\authentication\\oauthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|solutionrelative:facebookclone\\controllers\\authentication\\oauthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|f:\\omarapi\\facebookclone\\facebookclone\\controllers\\authentication\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|solutionrelative:facebookclone\\controllers\\authentication\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2814EA21-033C-4DF0-8273-371C7A771806}|FacebookClone.EF\\FacebookClone.EF.csproj|f:\\omarapi\\facebookclone\\facebookclone.ef\\repository\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2814EA21-033C-4DF0-8273-371C7A771806}|FacebookClone.EF\\FacebookClone.EF.csproj|solutionrelative:facebookclone.ef\\repository\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BADC81CB-1504-455F-BA9F-883095F9BF11}|FacebookClone.Core\\FacebookClone.Core.csproj|f:\\omarapi\\facebookclone\\facebookclone.core\\irepository\\auhtentication\\iauthenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BADC81CB-1504-455F-BA9F-883095F9BF11}|FacebookClone.Core\\FacebookClone.Core.csproj|solutionrelative:facebookclone.core\\irepository\\auhtentication\\iauthenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|f:\\omarapi\\facebookclonegithub\\facebookclone\\facebook-clone\\facebookclone\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|solutionrelative:facebookclone\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 83,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,65 +42,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OAuthController.cs",
-              "DocumentMoniker": "F:\\omarapi\\FacebookClone\\FacebookClone\\Controllers\\Authentication\\OAuthController.cs",
-              "RelativeDocumentMoniker": "FacebookClone\\Controllers\\Authentication\\OAuthController.cs",
-              "ToolTip": "F:\\omarapi\\FacebookClone\\FacebookClone\\Controllers\\Authentication\\OAuthController.cs",
-              "RelativeToolTip": "FacebookClone\\Controllers\\Authentication\\OAuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T21:43:39.842Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "F:\\omarapi\\FacebookClone\\FacebookClone\\appsettings.json",
-              "RelativeDocumentMoniker": "FacebookClone\\appsettings.json",
-              "ToolTip": "F:\\omarapi\\FacebookClone\\FacebookClone\\appsettings.json",
-              "RelativeToolTip": "FacebookClone\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-05T13:19:40.796Z",
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\Program.cs",
+              "RelativeDocumentMoniker": "FacebookClone\\Program.cs",
+              "ToolTip": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\Program.cs",
+              "RelativeToolTip": "FacebookClone\\Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T14:38:32.287Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AuthenticationService.cs",
-              "DocumentMoniker": "F:\\omarapi\\FacebookClone\\FacebookClone.EF\\Repository\\AuthenticationService.cs",
-              "RelativeDocumentMoniker": "FacebookClone.EF\\Repository\\AuthenticationService.cs",
-              "ToolTip": "F:\\omarapi\\FacebookClone\\FacebookClone.EF\\Repository\\AuthenticationService.cs",
-              "RelativeToolTip": "FacebookClone.EF\\Repository\\AuthenticationService.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAwwG8AAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T13:04:30.168Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IAuthenticationService.cs",
-              "DocumentMoniker": "F:\\omarapi\\FacebookClone\\FacebookClone.Core\\IRepository\\Auhtentication\\IAuthenticationService.cs",
-              "RelativeDocumentMoniker": "FacebookClone.Core\\IRepository\\Auhtentication\\IAuthenticationService.cs",
-              "ToolTip": "F:\\omarapi\\FacebookClone\\FacebookClone.Core\\IRepository\\Auhtentication\\IAuthenticationService.cs",
-              "RelativeToolTip": "FacebookClone.Core\\IRepository\\Auhtentication\\IAuthenticationService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T13:18:14.185Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AuthenticationController.cs",
-              "DocumentMoniker": "F:\\omarapi\\FacebookClone\\FacebookClone\\Controllers\\Authentication\\AuthenticationController.cs",
-              "RelativeDocumentMoniker": "FacebookClone\\Controllers\\Authentication\\AuthenticationController.cs",
-              "ToolTip": "F:\\omarapi\\FacebookClone\\FacebookClone\\Controllers\\Authentication\\AuthenticationController.cs",
-              "RelativeToolTip": "FacebookClone\\Controllers\\Authentication\\AuthenticationController.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAgwEgAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T13:11:13.317Z"
             }
           ]
         },
