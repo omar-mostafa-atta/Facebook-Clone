@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\omarapi\\FacebookClone\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2814EA21-033C-4DF0-8273-371C7A771806}|FacebookClone.EF\\FacebookClone.EF.csproj|f:\\omarapi\\facebookclone\\facebookclone.ef\\repository\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2814EA21-033C-4DF0-8273-371C7A771806}|FacebookClone.EF\\FacebookClone.EF.csproj|solutionrelative:facebookclone.ef\\repository\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|f:\\omarapi\\facebookclone\\facebookclone\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|solutionrelative:facebookclone\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|f:\\omarapi\\facebookclone\\facebookclone\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|solutionrelative:facebookclone\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 83,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthenticationService.cs",
+              "DocumentMoniker": "F:\\omarapi\\FacebookClone\\FacebookClone.EF\\Repository\\AuthenticationService.cs",
+              "RelativeDocumentMoniker": "FacebookClone.EF\\Repository\\AuthenticationService.cs",
+              "ToolTip": "F:\\omarapi\\FacebookClone\\FacebookClone.EF\\Repository\\AuthenticationService.cs",
+              "RelativeToolTip": "FacebookClone.EF\\Repository\\AuthenticationService.cs",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAmwKwAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T22:14:04.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\omarapi\\FacebookClone\\FacebookClone\\Program.cs",
+              "RelativeDocumentMoniker": "FacebookClone\\Program.cs",
+              "ToolTip": "F:\\omarapi\\FacebookClone\\FacebookClone\\Program.cs",
+              "RelativeToolTip": "FacebookClone\\Program.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAgwCsAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T22:12:24.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "F:\\omarapi\\FacebookClone\\FacebookClone\\appsettings.json",
+              "RelativeDocumentMoniker": "FacebookClone\\appsettings.json",
+              "ToolTip": "F:\\omarapi\\FacebookClone\\FacebookClone\\appsettings.json",
+              "RelativeToolTip": "FacebookClone\\appsettings.json",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-14T22:11:51.654Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

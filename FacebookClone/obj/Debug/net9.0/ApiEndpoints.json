@@ -1,0 +1,175 @@
+[
+  {
+    "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
+    "Method": "ForgotPassword",
+    "RelativePath": "api/Authentication/GetUserByEmail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "emailFromRequest",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
+    "Method": "GoogleLogin",
+    "RelativePath": "api/Authentication/GoogleLogin",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
+    "Method": "GoogleResponse",
+    "RelativePath": "api/Authentication/GoogleResponse",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
+    "Method": "Login",
+    "RelativePath": "api/Authentication/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginFromRequest",
+        "Type": "FacebookClone.Core.DTO.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/Authentication/ResetPassword",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resetPasswordDTO",
+        "Type": "FacebookClone.Core.DTO.ResetPasswordDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
+    "Method": "SignUp",
+    "RelativePath": "api/Authentication/SignUp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerFromRequest",
+        "Type": "FacebookClone.Core.DTO.RegisterDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
+    "Method": "ValidateOtp",
+    "RelativePath": "api/Authentication/ValidateOtp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "signUpResponseDto",
+        "Type": "FacebookClone.Core.DTO.SignUpResponseDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.PostController",
+    "Method": "CreatePost",
+    "RelativePath": "api/Post/CreatePost",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "text",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mediaFiles",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "FacebookClone.Core.DTO.PostDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.PostController",
+    "Method": "GetAllPosts",
+    "RelativePath": "api/Post/GetAllPosts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.PostController",
+    "Method": "GetPost",
+    "RelativePath": "api/Post/GetPost/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.PostController",
+    "Method": "GetUserPosts",
+    "RelativePath": "api/Post/GetUserPosts/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
