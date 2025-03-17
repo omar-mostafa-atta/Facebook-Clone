@@ -70,41 +70,8 @@ namespace FacebookClone.Controllers.Authentication
 
 		}
 
-		[HttpGet("GoogleLogin")]
-		public IActionResult GoogleLogin()
-		{
-			var redirectUrl = Url.Action(nameof(GoogleResponse), "Authentication");
-			return Challenge(new AuthenticationProperties { RedirectUri = redirectUrl }, GoogleDefaults.AuthenticationScheme);
-		}
-
-		[HttpGet("GoogleResponse")]
-		public async Task<IActionResult> GoogleResponse()
-		{
-			var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
-			if (!result.Succeeded)
-				return BadRequest("Google authentication failed");
-
-			var email = result.Principal.FindFirst(ClaimTypes.Email)?.Value;
-			var name = result.Principal.FindFirst(ClaimTypes.Name)?.Value;
-
-			 
-			var user = await _userManager.FindByEmailAsync(email);
-			if (user == null)
-			{
-				 
-				user = new AppUser { UserName = name, Email = email };
-				var createUserResult = await _userManager.CreateAsync(user);
-				if (!createUserResult.Succeeded)
-					return BadRequest("Failed to create user with Google login");
-			}
-
-			 
-			await _signInManager.SignInAsync(user, isPersistent: false);
-
-			return Ok(new { Email = user.Email, Name = user.UserName });
-		}
-		[HttpGet("GetUserByEmail")]
+		
+		[HttpGet("ForgotPassword")]
 		public async Task<IActionResult> ForgotPassword(string emailFromRequest) {
 
 			 var result=_auth.ForgotPasswordAsync(emailFromRequest);

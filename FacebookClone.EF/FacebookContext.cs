@@ -1,4 +1,5 @@
 ﻿using FacebookClone.Core.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -6,7 +7,7 @@ using System.Reflection;
 
 namespace FacebookClone.EF
 {
-	public class FacebookContext: IdentityDbContext<AppUser>
+	public class FacebookContext: IdentityDbContext<AppUser,AppRole,Guid>
 	{
 		public FacebookContext(DbContextOptions<FacebookContext> options):base(options)
 		{

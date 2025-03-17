@@ -145,7 +145,7 @@ namespace FacebookClone.Core.Repository.Auhtentication
 			List<Claim> claims = new List<Claim>();
 
 			claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));//This is token id not user id
-			claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id));
+			claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
 			claims.Add(new Claim(ClaimTypes.Name, user.UserName));
 			claims.Add(new Claim(ClaimTypes.Email, user.Email));
 			foreach (var role in userroles)

@@ -2,7 +2,7 @@
   {
     "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
     "Method": "ForgotPassword",
-    "RelativePath": "api/Authentication/GetUserByEmail",
+    "RelativePath": "api/Authentication/ForgotPassword",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -13,26 +13,6 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
-    "Method": "GoogleLogin",
-    "RelativePath": "api/Authentication/GoogleLogin",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
-    "Method": "GoogleResponse",
-    "RelativePath": "api/Authentication/GoogleResponse",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -108,12 +88,12 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "text",
+        "Name": "Text",
         "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "mediaFiles",
+        "Name": "MediaFiles",
         "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
         "IsRequired": false
       }
@@ -166,6 +146,64 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.PostController",
+    "Method": "SavePost",
+    "RelativePath": "api/Post/SavePost/{PostId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PostId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.PostController",
+    "Method": "UpdatePost",
+    "RelativePath": "api/Post/UpdatePost/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "Text",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MediaFiles",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.RoleController",
+    "Method": "Create",
+    "RelativePath": "api/Role/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roleName",
         "Type": "System.String",
         "IsRequired": true
       }

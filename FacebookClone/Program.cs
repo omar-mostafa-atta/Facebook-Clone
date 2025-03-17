@@ -37,7 +37,7 @@ namespace FacebookClone
 			builder.Services.AddSingleton<RedisOTPService>();
 			builder.Services.AddScoped<IPostRepository,PostRepository>();
 			builder.Services.AddScoped<IGenericRepository<SavedPosts>, GenericRepository<SavedPosts>>();
-			builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<FacebookContext>().AddDefaultTokenProviders();
+			builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<FacebookContext>().AddDefaultTokenProviders();
 			builder.Services.AddDbContext<FacebookContext>(options =>options.UseSqlServer(builder.Configuration.GetConnectionString("OmarConnection")));
 
 			builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
@@ -89,7 +89,7 @@ namespace FacebookClone
 			}
 			using (var scope = app.Services.CreateScope())
 			{
-				var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+				var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<AppRole>>();
 				var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
 
 
@@ -104,7 +104,7 @@ namespace FacebookClone
 
 			app.Run();
 		}
-		private static async Task SeedRolesAndAdminAsync(RoleManager<IdentityRole> roleManager, UserManager<AppUser> userManager)
+		private static async Task SeedRolesAndAdminAsync(RoleManager<AppRole> roleManager, UserManager<AppUser> userManager)
 		{
 			var roles = new List<string> { "Admin", "User" };
 
@@ -112,7 +112,7 @@ namespace FacebookClone
 			{
 				if (!await roleManager.RoleExistsAsync(role))
 				{
-					await roleManager.CreateAsync(new IdentityRole(role));
+					await roleManager.CreateAsync(new AppRole(role));
 				}
 			}
 

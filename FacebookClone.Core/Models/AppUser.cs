@@ -2,7 +2,7 @@
 
 namespace FacebookClone.Core.Models
 {
-	public class AppUser:IdentityUser
+	public class AppUser:IdentityUser<Guid>
 	{
 		public string? ProfilePictureUrl { get; set; } 
 		public string? BackgroundPictureUrl { get; set; } 

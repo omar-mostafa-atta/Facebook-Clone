@@ -177,7 +177,7 @@ namespace FacebookClone.Controllers
 			}
 		}
 
-		[HttpPost("SavePost/{PostId)")]
+		[HttpPost("SavePost/{PostId}")]
 		[Authorize]
 		public async Task<IActionResult> SavePost(string PostId)
 		{
