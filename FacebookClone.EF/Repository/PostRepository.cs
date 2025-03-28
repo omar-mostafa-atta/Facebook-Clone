@@ -1,19 +1,24 @@
 ﻿using FacebookClone.Core.DTO;
 using FacebookClone.Core.IRepository;
 using FacebookClone.Core.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Hosting;
 
 namespace FacebookClone.Core.Services
 {
 	public class PostRepository : IPostRepository
 	{
 		private readonly IGenericRepository<Post> _postRepository;
+		private readonly IGenericRepository<Reactions> _ReactionRepository;
 		private readonly IMediaRepository _mediaService;
 		private readonly IGenericRepository<SavedPosts> _savedPostsRepository;
-		public PostRepository(IGenericRepository<Post> postRepository, IMediaRepository mediaService, IGenericRepository<SavedPosts> savedPostsRepository)
+		public PostRepository(IGenericRepository<Reactions> ReactionRepository, IGenericRepository<Post> postRepository, IMediaRepository mediaService, IGenericRepository<SavedPosts> savedPostsRepository)
 		{
 			_postRepository = postRepository;
 			_mediaService = mediaService;
 			_savedPostsRepository = savedPostsRepository;
+			
+			_ReactionRepository=ReactionRepository;
 		}
 
 		public async Task<PostDTO> CreatePostAsync(CreateAndUpdatePostDTO createPostDto, Guid userId)
@@ -74,7 +79,7 @@ namespace FacebookClone.Core.Services
 
 	 
 
-		public async Task<PostDTO> UpdatePostAsync(string postId, CreateAndUpdatePostDTO updatePostDto, Guid userId)
+		public async Task<PostDTO> UpdatePostAsync(string postId, CreateAndUpdatePostDTO? updatePostDto, Guid userId)
 		{
 			
 			if (!Guid.TryParse(postId, out var parsedPostId))
@@ -171,6 +176,33 @@ namespace FacebookClone.Core.Services
 			await _savedPostsRepository.SaveChangesAsync();
 		}
 
-		
+		public async Task AddReaction(AddReactionDTO addReactionDTO, AppUser user)
+		{
+			if (!Guid.TryParse(addReactionDTO.PostId, out var parsedPostId))
+			{
+				throw new Exception("Wrong GUID post format");
+			}
+			
+			var existingPost = await _postRepository.GetByIdAsync(addReactionDTO.PostId);
+			if (existingPost == null)
+			{
+				throw new KeyNotFoundException("Post not found");
+			}
+
+			var Reaction = new Reactions
+			{
+				AppUserId = user.Id,
+				ReactionType = addReactionDTO.ReactionType,
+				PostId = Guid.Parse(addReactionDTO.PostId)
+			};
+			existingPost.TotalReactions += 1;
+			 _postRepository.Update(existingPost);
+			await _postRepository.SaveChangesAsync();
+			await _ReactionRepository.AddAsync(Reaction);
+			await _ReactionRepository.SaveChangesAsync();
+
+		}
+
+
 	}
 }

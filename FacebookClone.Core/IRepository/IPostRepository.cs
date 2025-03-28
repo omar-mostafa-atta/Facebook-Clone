@@ -1,4 +1,5 @@
 ﻿using FacebookClone.Core.DTO;
+using FacebookClone.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,7 @@ namespace FacebookClone.Core.IRepository
 		Task<PostDTO> CreatePostAsync(CreateAndUpdatePostDTO createPostDto, Guid userId);
 		Task<PostDTO> UpdatePostAsync(string postId, CreateAndUpdatePostDTO updatePostDto, Guid userId);
 		Task SavePostAsync(Guid postId, Guid userId);
+
+		Task AddReaction(AddReactionDTO addReactionDTO,AppUser user);
 	}
 }

@@ -9,7 +9,7 @@ namespace FacebookClone.Core.Models
 	public class Reactions : BaseModel
 	{
 		 
-		public string Type { get; set; }
+		public ReactionType ReactionType { get; set; }
 		
 		public Guid AppUserId { get; set; }
 		public AppUser AppUser { get; set; }
@@ -17,5 +17,13 @@ namespace FacebookClone.Core.Models
 		public Guid PostId { get; set; }
 		public Post Post { get; set; }
 
+	}
+
+	public enum ReactionType
+	{
+		like = 1,
+		love,
+		angry,
+		sad
 	}
 }

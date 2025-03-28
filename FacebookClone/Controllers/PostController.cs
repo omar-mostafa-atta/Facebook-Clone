@@ -3,6 +3,7 @@ using FacebookClone.Core.IRepository;
 using FacebookClone.Core.Models;
 using FacebookClone.Core.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -16,11 +17,14 @@ namespace FacebookClone.Controllers
 		private readonly IMediaRepository _mediaService;
 		private readonly IPostRepository _postService;
 
-		public PostController(IGenericRepository<Post> postrepository, IMediaRepository mediaService, IPostRepository postService)
+		private readonly UserManager<AppUser> _userManager;
+
+		public PostController(IGenericRepository<Post> postrepository, IMediaRepository mediaService, IPostRepository postService, UserManager<AppUser> userManager)
 		{
 			_postrepository = postrepository;
 			_mediaService = mediaService;
 			_postService = postService;
+			_userManager = userManager;
 		}
 
 		[HttpGet("GetAllPosts")]
@@ -52,7 +56,7 @@ namespace FacebookClone.Controllers
 			return Ok(postDtos);
 		}
 
-		[HttpGet("GetPost/{id}")]
+		[HttpGet("Get/{id}")]
 		public async Task<IActionResult> GetPost(string id)
 		{
 			if (!Guid.TryParse(id, out var guidId))
@@ -117,9 +121,9 @@ namespace FacebookClone.Controllers
 
 			return Ok(postDtos);
 		}
-		[HttpPost("CreatePost")]
-		[Authorize] 
-		public async Task<ActionResult<PostDTO>> CreatePost([FromForm] CreateAndUpdatePostDTO createPostDto)
+		[HttpPost("Create")]
+	
+		public async Task<ActionResult<PostDTO>> Create([FromForm] CreateAndUpdatePostDTO createPostDto)
 		{
 			try
 			{
@@ -144,9 +148,9 @@ namespace FacebookClone.Controllers
 			}
 		}
 
-		[HttpPut("UpdatePost/{id}")]
-		[Authorize]
-		public async Task<IActionResult> UpdatePost(string id, [FromForm] CreateAndUpdatePostDTO updatePostDto)
+		[HttpPut("Update/{id}")]
+		
+		public async Task<IActionResult> Update(string id, [FromForm] CreateAndUpdatePostDTO updatePostDto)
 		{
 			try
 			{
@@ -177,9 +181,9 @@ namespace FacebookClone.Controllers
 			}
 		}
 
-		[HttpPost("SavePost/{PostId}")]
-		[Authorize]
-		public async Task<IActionResult> SavePost(string PostId)
+		[HttpPost("Save/{PostId}")]
+		
+		public async Task<IActionResult> Save([FromBody]string PostId)
 		{
 			try
 			{
@@ -205,7 +209,29 @@ namespace FacebookClone.Controllers
 			}
 			catch (InvalidOperationException ex)
 			{
-				return Conflict(ex.Message); // 409 Conflict for already saved
+				return Conflict(ex.Message);  
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(500, $"An error occurred: {ex.Message}");
+			}
+		}
+
+		[HttpPost("React")]
+		[Authorize]
+		public async Task<IActionResult> React(AddReactionDTO addReactionDTO)
+		{
+			try
+			{
+				var user = await _userManager.GetUserAsync(User);
+				if (user == null)
+					return Unauthorized();
+				await _postService.AddReaction(addReactionDTO, user);
+				return Ok("Reaction is Added");
+			}
+			catch (KeyNotFoundException ex)
+			{
+				return NotFound(ex.Message);
 			}
 			catch (Exception ex)
 			{

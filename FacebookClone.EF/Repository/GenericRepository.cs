@@ -41,7 +41,8 @@ namespace FacebookClone.EF.Repository
 
 		public async Task<T?> GetByIdAsync(string id)
 		{
-			return await _dbSet.FindAsync(id);
+			
+			return await _dbSet.FindAsync(Guid.Parse(id));
 		}
 
 		public async Task<int> SaveChangesAsync()

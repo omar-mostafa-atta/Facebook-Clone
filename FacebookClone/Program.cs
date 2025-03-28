@@ -14,6 +14,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
 using System.Text;
+using System.Text.Json.Serialization;
+using System.Text.Json;
+using Microsoft.AspNetCore.Http.Json;
 
 namespace FacebookClone
 {
@@ -73,7 +76,13 @@ namespace FacebookClone
 			builder.Services.AddSingleton(cloudinary);
 			builder.Services.AddScoped<IGenericRepository<Media>, GenericRepository<Media>>();
 			builder.Services.AddScoped<IGenericRepository<Post>, GenericRepository<Post>>();
+			builder.Services.AddScoped<IGenericRepository<Reactions>, GenericRepository<Reactions>>();
 			builder.Services.AddScoped<IMediaRepository, MediaRepository>();
+			builder.Services.Configure<JsonOptions>(options =>
+			{
+				options.SerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase, allowIntegerValues: false));
+				options.SerializerOptions.PropertyNameCaseInsensitive = true;
+			});
 			var app = builder.Build();
 
 
