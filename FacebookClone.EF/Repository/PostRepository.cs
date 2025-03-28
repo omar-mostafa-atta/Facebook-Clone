@@ -10,15 +10,20 @@ namespace FacebookClone.Core.Services
 	{
 		private readonly IGenericRepository<Post> _postRepository;
 		private readonly IGenericRepository<Reactions> _ReactionRepository;
+		private readonly IReactionRepository _reactionRepository;
 		private readonly IMediaRepository _mediaService;
 		private readonly IGenericRepository<SavedPosts> _savedPostsRepository;
-		public PostRepository(IGenericRepository<Reactions> ReactionRepository, IGenericRepository<Post> postRepository, IMediaRepository mediaService, IGenericRepository<SavedPosts> savedPostsRepository)
+		public PostRepository(IGenericRepository<Reactions> ReactionRepository, IGenericRepository<Post> postRepository, 
+			IMediaRepository mediaService, 
+			IGenericRepository<SavedPosts> savedPostsRepository, 
+			IReactionRepository reactionRepository)
 		{
 			_postRepository = postRepository;
 			_mediaService = mediaService;
 			_savedPostsRepository = savedPostsRepository;
 			
 			_ReactionRepository=ReactionRepository;
+			_reactionRepository = reactionRepository;
 		}
 
 		public async Task<PostDTO> CreatePostAsync(CreateAndUpdatePostDTO createPostDto, Guid userId)
@@ -53,8 +58,8 @@ namespace FacebookClone.Core.Services
 						post.Media.Add(media);
 					}
 				}
-				_postRepository.Update(post);
-				await _postRepository.SaveChangesAsync();
+				await _postRepository.Update(post);
+				 
 			}
 
 			
@@ -79,7 +84,7 @@ namespace FacebookClone.Core.Services
 
 	 
 
-		public async Task<PostDTO> UpdatePostAsync(string postId, CreateAndUpdatePostDTO? updatePostDto, Guid userId)
+		public async Task<PostDTO> UpdatePostAsync(string postId, CreateAndUpdatePostDTO updatePostDto, Guid userId)
 		{
 			
 			if (!Guid.TryParse(postId, out var parsedPostId))
@@ -126,8 +131,8 @@ namespace FacebookClone.Core.Services
 			}
 
 			
-			_postRepository.Update(post);
-			await _postRepository.SaveChangesAsync();
+			await _postRepository.Update(post);
+			 
 
 			
 			return new PostDTO
@@ -176,6 +181,27 @@ namespace FacebookClone.Core.Services
 			await _savedPostsRepository.SaveChangesAsync();
 		}
 
+		public async Task UnsavePostAsync(Guid postId, Guid userId)
+		{
+			
+			var post = await _postRepository.GetByIdAsync(postId.ToString());
+			if (post == null)
+			{
+				throw new KeyNotFoundException("Post not found.");
+			}
+
+			
+			var existingSavedPost = (await _savedPostsRepository.FindAsync(sp => sp.AppUserId == userId && sp.PostId == postId)).FirstOrDefault();
+			if (existingSavedPost == null)
+			{
+				throw new InvalidOperationException("Post is not saved by this user.");
+			}
+
+			
+			 _savedPostsRepository.Delete(existingSavedPost);
+			await _savedPostsRepository.SaveChangesAsync();
+		}
+
 		public async Task AddReaction(AddReactionDTO addReactionDTO, AppUser user)
 		{
 			if (!Guid.TryParse(addReactionDTO.PostId, out var parsedPostId))
@@ -189,20 +215,91 @@ namespace FacebookClone.Core.Services
 				throw new KeyNotFoundException("Post not found");
 			}
 
+			if (!TryParseReactionType(addReactionDTO.ReactionType, out var reactionType))
+			{
+				throw new ArgumentException("Invalid reaction type provided");
+			}
+			var existingReaction = await _reactionRepository.GetReactionByUserAndPostAsync(user.Id, parsedPostId);
+			if (existingReaction != null)
+			{
+				
+				existingReaction.ReactionType = reactionType;
+				await _ReactionRepository.Update(existingReaction);
+			
+				return; 
+			}
 			var Reaction = new Reactions
 			{
 				AppUserId = user.Id,
-				ReactionType = addReactionDTO.ReactionType,
+				ReactionType = reactionType,
 				PostId = Guid.Parse(addReactionDTO.PostId)
 			};
 			existingPost.TotalReactions += 1;
-			 _postRepository.Update(existingPost);
-			await _postRepository.SaveChangesAsync();
+			 await _postRepository.Update(existingPost);
 			await _ReactionRepository.AddAsync(Reaction);
 			await _ReactionRepository.SaveChangesAsync();
 
 		}
 
+		private bool TryParseReactionType(string reactionTypeString, out ReactionType reactionType)
+		{
+			reactionType = ReactionType.like;
+			if (string.IsNullOrWhiteSpace(reactionTypeString))
+				return false;
+
+			
+			switch (reactionTypeString.ToLower())
+			{
+				case "like":
+					reactionType = ReactionType.like;
+					return true;
+				case "love":
+					reactionType = ReactionType.love;
+					return true;
+				case "angry":
+					reactionType = ReactionType.angry;
+					return true;
+				case "sad":
+					reactionType = ReactionType.sad;
+					return true;
+				default:
+					return false;
+			}
+		}
+
+		public async Task RemoveReaction(string PostId, AppUser user)
+		{
+			
+			if (!Guid.TryParse( PostId, out var parsedPostId))
+			{
+				throw new ArgumentException("Wrong GUID post format");
+			}
+
+			
+			var existingPost = await _postRepository.GetByIdAsync(PostId);
+			if (existingPost == null)
+			{
+				throw new KeyNotFoundException("Post not found");
+			}
+
+			var existingReaction = await _reactionRepository.GetReactionByUserAndPostAsync(user.Id, parsedPostId);
+			if (existingReaction == null)
+			{
+				throw new KeyNotFoundException("No reaction found for this user on this post");
+			}
+
+		
+			existingPost.TotalReactions -= 1;
+			if (existingPost.TotalReactions < 0) 
+			{
+				existingPost.TotalReactions = 0;
+			}
+
+		
+		    _ReactionRepository.Delete(existingReaction);
+			await _postRepository.Update(existingPost);
+			await _ReactionRepository.SaveChangesAsync();
+		}
 
 	}
 }

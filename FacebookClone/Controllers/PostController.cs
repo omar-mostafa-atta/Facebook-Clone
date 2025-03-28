@@ -1,7 +1,6 @@
 ﻿using FacebookClone.Core.DTO;
 using FacebookClone.Core.IRepository;
 using FacebookClone.Core.Models;
-using FacebookClone.Core.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -122,12 +121,12 @@ namespace FacebookClone.Controllers
 			return Ok(postDtos);
 		}
 		[HttpPost("Create")]
-	
+
 		public async Task<ActionResult<PostDTO>> Create([FromForm] CreateAndUpdatePostDTO createPostDto)
 		{
 			try
 			{
-				
+
 				var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 				if (!Guid.TryParse(userId, out var appUserId))
 				{
@@ -149,7 +148,7 @@ namespace FacebookClone.Controllers
 		}
 
 		[HttpPut("Update/{id}")]
-		
+
 		public async Task<IActionResult> Update(string id, [FromForm] CreateAndUpdatePostDTO updatePostDto)
 		{
 			try
@@ -181,25 +180,25 @@ namespace FacebookClone.Controllers
 			}
 		}
 
-		[HttpPost("Save/{PostId}")]
-		
-		public async Task<IActionResult> Save([FromBody]string PostId)
+		[HttpPost("Save")]
+		[Authorize]
+		public async Task<IActionResult> Save([FromBody] SavePostDTO savePostDTO)
 		{
 			try
 			{
-				if (!Guid.TryParse(PostId, out var parsedPostId))
+				if (!Guid.TryParse(savePostDTO.PostId, out var parsedPostId))
 				{
 					return BadRequest("Invalid GUID format for Post ID.");
 				}
 
-				 
+
 				var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 				if (!Guid.TryParse(userIdClaim, out var appUserId))
 				{
 					return BadRequest("Invalid user ID.");
 				}
 
-				 
+
 				await _postService.SavePostAsync(parsedPostId, appUserId);
 				return Ok("Post saved successfully.");
 			}
@@ -209,7 +208,7 @@ namespace FacebookClone.Controllers
 			}
 			catch (InvalidOperationException ex)
 			{
-				return Conflict(ex.Message);  
+				return Conflict(ex.Message);
 			}
 			catch (Exception ex)
 			{
@@ -217,9 +216,43 @@ namespace FacebookClone.Controllers
 			}
 		}
 
-		[HttpPost("React")]
+		
+		[HttpPost("UnsavePost")]
 		[Authorize]
-		public async Task<IActionResult> React(AddReactionDTO addReactionDTO)
+		public async Task<IActionResult> UnsavePost([FromBody] UnsavePostDTO unsavePostDTO)
+		{
+			try
+			{
+				var user = await _userManager.GetUserAsync(User);
+				if (user == null)
+					return Unauthorized();
+
+				if (!Guid.TryParse(unsavePostDTO.PostId, out var postId))
+				{
+					return BadRequest("Invalid Post ID format.");
+				}
+
+				await _postService.UnsavePostAsync(postId, user.Id);
+				return Ok("Post has been unsaved.");
+			}
+			catch (KeyNotFoundException ex)
+			{
+				return NotFound(ex.Message);
+			}
+			catch (InvalidOperationException ex)
+			{
+				return BadRequest(ex.Message);
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(500, $"An error occurred: {ex.Message}");
+			}
+		}
+
+
+		[HttpPost("AddReaction")]
+		[Authorize]
+		public async Task<IActionResult> AddReaction(AddReactionDTO addReactionDTO)
 		{
 			try
 			{
@@ -239,5 +272,27 @@ namespace FacebookClone.Controllers
 			}
 		}
 
+		[HttpPost("RemoveReaction")]
+		[Authorize]
+		public async Task<IActionResult> RemoveReaction([FromBody] RemoveReactionDTO removeReactionDTO)
+		{
+			try
+			{
+				var user = await _userManager.GetUserAsync(User);
+				if (user == null)
+					return Unauthorized();
+
+				await _postService.RemoveReaction(removeReactionDTO.PostId, user);
+				return Ok("Reaction is Removed");
+			}
+			catch (KeyNotFoundException ex)
+			{
+				return NotFound(ex.Message);
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(500, $"An error occurred: {ex.Message}");
+			}
+		}
 	}
 }

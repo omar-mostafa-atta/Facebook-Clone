@@ -81,6 +81,22 @@
   },
   {
     "ContainingType": "FacebookClone.Controllers.PostController",
+    "Method": "AddReaction",
+    "RelativePath": "api/Post/AddReaction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addReactionDTO",
+        "Type": "FacebookClone.Core.DTO.AddReactionDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.PostController",
     "Method": "Create",
     "RelativePath": "api/Post/Create",
     "HttpMethod": "POST",
@@ -154,15 +170,15 @@
   },
   {
     "ContainingType": "FacebookClone.Controllers.PostController",
-    "Method": "React",
-    "RelativePath": "api/Post/React",
+    "Method": "RemoveReaction",
+    "RelativePath": "api/Post/RemoveReaction",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "addReactionDTO",
-        "Type": "FacebookClone.Core.DTO.AddReactionDTO",
+        "Name": "removeReactionDTO",
+        "Type": "FacebookClone.Core.DTO.RemoveReactionDTO",
         "IsRequired": true
       }
     ],
@@ -171,19 +187,30 @@
   {
     "ContainingType": "FacebookClone.Controllers.PostController",
     "Method": "Save",
-    "RelativePath": "api/Post/Save/{PostId}",
+    "RelativePath": "api/Post/Save",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "PostId",
-        "Type": "System.String",
+        "Name": "savePostDTO",
+        "Type": "FacebookClone.Core.DTO.SavePostDTO",
         "IsRequired": true
-      },
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.PostController",
+    "Method": "UnsavePost",
+    "RelativePath": "api/Post/UnsavePost",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Name": "PostId",
-        "Type": "",
+        "Name": "unsavePostDTO",
+        "Type": "FacebookClone.Core.DTO.UnsavePostDTO",
         "IsRequired": true
       }
     ],

@@ -77,6 +77,7 @@ namespace FacebookClone
 			builder.Services.AddScoped<IGenericRepository<Media>, GenericRepository<Media>>();
 			builder.Services.AddScoped<IGenericRepository<Post>, GenericRepository<Post>>();
 			builder.Services.AddScoped<IGenericRepository<Reactions>, GenericRepository<Reactions>>();
+			builder.Services.AddScoped<IReactionRepository, ReactionRepository>();
 			builder.Services.AddScoped<IMediaRepository, MediaRepository>();
 			builder.Services.Configure<JsonOptions>(options =>
 			{
