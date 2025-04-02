@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FacebookClone.Controllers.Authentication
 {
@@ -18,7 +19,7 @@ namespace FacebookClone.Controllers.Authentication
 		private readonly Core.Repository.Auhtentication.IAuthenticationService _auth;
 		private readonly UserManager<AppUser> _userManager;
 		private readonly SignInManager<AppUser> _signInManager;
-		public AuthenticationController( Core.Repository.Auhtentication.IAuthenticationService auth, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+		public AuthenticationController(Core.Repository.Auhtentication.IAuthenticationService auth, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
 		{
 			_auth = auth;
 
@@ -37,9 +38,9 @@ namespace FacebookClone.Controllers.Authentication
 			var otp = await _auth.SendOTPAsync(registerFromRequest.Email);
 
 			var emailToken = await _auth.EmailOnlyToken(registerFromRequest.Email);
-			var accesstoken = await _auth.RegisterAsync(registerFromRequest,otp);
+			var accesstoken = await _auth.RegisterAsync(registerFromRequest, otp);
 
-			return Ok(new SignUpResponseDto { EmailOnlyToken= emailToken, OTP= otp});
+			return Ok(new SignUpResponseDto { EmailOnlyToken = emailToken, OTP = otp });
 
 		}
 
@@ -49,10 +50,10 @@ namespace FacebookClone.Controllers.Authentication
 			if (signUpResponseDto == null)
 				return BadRequest();
 
-			var result=await _auth.VerifyOTP(signUpResponseDto);
-			if(result==false)
+			var result = await _auth.VerifyOTP(signUpResponseDto);
+			if (result == false)
 				return BadRequest("OTP Is Wrong");
-		
+
 			return Ok("OTP is correct");
 
 		}
@@ -70,11 +71,12 @@ namespace FacebookClone.Controllers.Authentication
 
 		}
 
-		
-		[HttpGet("ForgotPassword")]
-		public async Task<IActionResult> ForgotPassword(string emailFromRequest) {
 
-			 var result=_auth.ForgotPasswordAsync(emailFromRequest);
+		[HttpGet("ForgotPassword")]
+		public async Task<IActionResult> ForgotPassword(string emailFromRequest)
+		{
+
+			var result = _auth.ForgotPasswordAsync(emailFromRequest);
 
 			return Ok(result);
 
@@ -83,13 +85,32 @@ namespace FacebookClone.Controllers.Authentication
 		[HttpPatch("ResetPassword")]
 		public async Task<IActionResult> ResetPassword(ResetPasswordDTO resetPasswordDTO)
 		{
-			if(resetPasswordDTO == null)
+			if (resetPasswordDTO == null)
 				return BadRequest();
 
 			var result = _auth.ResetPasswordAsync(resetPasswordDTO);
 
 			return Ok(result);
 
+		}
+
+		[HttpDelete]
+		[Authorize(Roles = "Admin")]
+		public async Task<IActionResult> DeleteUser(string userId)
+		{
+			try
+			{
+				await _auth.DeleteUserAsync(userId);
+				return Ok("User is deleted");
+			}
+			catch (KeyNotFoundException ex)
+			{
+				return NotFound(ex);
+			}
+			catch (Exception ex)
+			{
+				return Forbid("Adminn cannot Delete him self");
+			}
 		}
 	}
 }

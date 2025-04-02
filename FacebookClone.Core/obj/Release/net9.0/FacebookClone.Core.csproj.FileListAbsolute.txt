@@ -1,0 +1,13 @@
+F:\omarapi\FacebookCloneGithub\FacebookClone\Facebook-Clone\FacebookClone.Core\bin\Release\net9.0\FacebookClone.Core.deps.json
+F:\omarapi\FacebookCloneGithub\FacebookClone\Facebook-Clone\FacebookClone.Core\bin\Release\net9.0\FacebookClone.Core.dll
+F:\omarapi\FacebookCloneGithub\FacebookClone\Facebook-Clone\FacebookClone.Core\bin\Release\net9.0\FacebookClone.Core.pdb
+F:\omarapi\FacebookCloneGithub\FacebookClone\Facebook-Clone\FacebookClone.Core\obj\Release\net9.0\FacebookClone.Core.csproj.AssemblyReference.cache
+F:\omarapi\FacebookCloneGithub\FacebookClone\Facebook-Clone\FacebookClone.Core\obj\Release\net9.0\FacebookClone.Core.GeneratedMSBuildEditorConfig.editorconfig
+F:\omarapi\FacebookCloneGithub\FacebookClone\Facebook-Clone\FacebookClone.Core\obj\Release\net9.0\FacebookClone.Core.AssemblyInfoInputs.cache
+F:\omarapi\FacebookCloneGithub\FacebookClone\Facebook-Clone\FacebookClone.Core\obj\Release\net9.0\FacebookClone.Core.AssemblyInfo.cs
+F:\omarapi\FacebookCloneGithub\FacebookClone\Facebook-Clone\FacebookClone.Core\obj\Release\net9.0\FacebookClone.Core.csproj.CoreCompileInputs.cache
+F:\omarapi\FacebookCloneGithub\FacebookClone\Facebook-Clone\FacebookClone.Core\obj\Release\net9.0\FacebookClone.Core.sourcelink.json
+F:\omarapi\FacebookCloneGithub\FacebookClone\Facebook-Clone\FacebookClone.Core\obj\Release\net9.0\FacebookClone.Core.dll
+F:\omarapi\FacebookCloneGithub\FacebookClone\Facebook-Clone\FacebookClone.Core\obj\Release\net9.0\refint\FacebookClone.Core.dll
+F:\omarapi\FacebookCloneGithub\FacebookClone\Facebook-Clone\FacebookClone.Core\obj\Release\net9.0\FacebookClone.Core.pdb
+F:\omarapi\FacebookCloneGithub\FacebookClone\Facebook-Clone\FacebookClone.Core\obj\Release\net9.0\ref\FacebookClone.Core.dll

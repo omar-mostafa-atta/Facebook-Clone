@@ -11,5 +11,6 @@ namespace FacebookClone.Core.Repository.Auhtentication
 		 Task<string> EmailOnlyToken(string email);
 		Task<string> ForgotPasswordAsync(string email);
 		Task<string> ResetPasswordAsync(ResetPasswordDTO resetPasswordDTO);
+		Task DeleteUserAsync(string userId);
 	}
 }

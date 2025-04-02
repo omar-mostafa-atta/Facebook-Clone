@@ -6,8 +6,6 @@ using FacebookClone.Core.Repository.Auhtentication;
 using FacebookClone.Core.Services;
 using FacebookClone.EF;
 using FacebookClone.EF.Repository;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -134,7 +132,8 @@ namespace FacebookClone
 				{
 					UserName = "admin",
 					Email = adminEmail,
-					EmailConfirmed = true
+					EmailConfirmed = true,
+					Verify = true
 				};
 
 				var result = await userManager.CreateAsync(newAdmin, "Admin@123");

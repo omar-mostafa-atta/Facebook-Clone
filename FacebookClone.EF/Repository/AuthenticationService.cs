@@ -135,6 +135,17 @@ namespace FacebookClone.Core.Repository.Auhtentication
 			await _emailService.SendEmailAsync(email, "This is Your OTP", otp);
 			return otp;
 		}
+
+		public async Task DeleteUserAsync(string userid)
+		{
+			var user=await _userManager.FindByIdAsync(userid);
+			if (user == null)
+				throw new KeyNotFoundException("There no user with this id");
+			else if (user.UserName == "Admin")
+				throw new Exception("Admin cannot delete him self");
+			else
+				await _userManager.DeleteAsync(user);
+		}
 		#region Helping Functions
 
 		private async Task<string> GenerateToken(AppUser user)
