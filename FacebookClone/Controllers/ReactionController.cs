@@ -12,13 +12,14 @@ namespace FacebookClone.Controllers
 	[ApiController]
 	public class ReactionController : ControllerBase
 	{
-		private readonly IPostRepository _postService;
+		
 		private readonly UserManager<AppUser> _userManager;
-
-		public ReactionController(IPostRepository _postService,  UserManager<AppUser> _userManager)
+		private readonly IReactionRepository _reactionRepository;
+		public ReactionController(  UserManager<AppUser> _userManager, IReactionRepository _reactionRepository)
 		{
-			this._postService = _postService;
+			
 			this._userManager= _userManager;
+			this._reactionRepository = _reactionRepository;
 		}
 
 
@@ -31,7 +32,7 @@ namespace FacebookClone.Controllers
 				var user = await _userManager.GetUserAsync(User);
 				if (user == null)
 					return Unauthorized();
-				await _postService.AddReaction(addReactionDTO, user);
+				await _reactionRepository.AddReaction(addReactionDTO, user);
 				return Ok("Reaction is Added");
 			}
 			catch (KeyNotFoundException ex)
@@ -54,7 +55,7 @@ namespace FacebookClone.Controllers
 				if (user == null)
 					return Unauthorized();
 
-				await _postService.RemoveReaction(removeReactionDTO.PostId, user);
+				await _reactionRepository.RemoveReaction(removeReactionDTO.PostId, user);
 				return Ok("Reaction is Removed");
 			}
 			catch (KeyNotFoundException ex)
@@ -64,6 +65,20 @@ namespace FacebookClone.Controllers
 			catch (Exception ex)
 			{
 				return StatusCode(500, $"An error occurred: {ex.Message}");
+			}
+		}
+		[HttpGet("GetPostReactions")]
+		public async Task<IActionResult> GetReaction([FromQuery]string postId)
+		{
+			try
+			{
+				var reactions = await _reactionRepository.GetReaction(postId);
+				return Ok(reactions);
+			}
+			catch (KeyNotFoundException ex)
+			{
+
+				return NotFound(ex.Message);
 			}
 		}
 

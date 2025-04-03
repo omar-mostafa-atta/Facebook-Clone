@@ -96,16 +96,16 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FacebookClone.Controllers.PostController",
-    "Method": "AddReaction",
-    "RelativePath": "api/Post/AddReaction",
+    "ContainingType": "FacebookClone.Controllers.CommentController",
+    "Method": "Add",
+    "RelativePath": "api/Comment/Add",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "addReactionDTO",
-        "Type": "FacebookClone.Core.DTO.AddReactionDTO",
+        "Name": "addCommentDTO",
+        "Type": "FacebookClone.Core.DTO.AddCommentDTO",
         "IsRequired": true
       }
     ],
@@ -186,22 +186,6 @@
   },
   {
     "ContainingType": "FacebookClone.Controllers.PostController",
-    "Method": "RemoveReaction",
-    "RelativePath": "api/Post/RemoveReaction",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "removeReactionDTO",
-        "Type": "FacebookClone.Core.DTO.RemoveReactionDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FacebookClone.Controllers.PostController",
     "Method": "Save",
     "RelativePath": "api/Post/Save",
     "HttpMethod": "POST",
@@ -259,6 +243,54 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "FacebookClone.Controllers.ReactionController",
+    "Method": "AddReaction",
+    "RelativePath": "api/Reaction/AddReaction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addReactionDTO",
+        "Type": "FacebookClone.Core.DTO.AddReactionDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.ReactionController",
+    "Method": "GetReaction",
+    "RelativePath": "api/Reaction/GetPostReactions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.ReactionController",
+    "Method": "RemoveReaction",
+    "RelativePath": "api/Reaction/RemoveReaction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "removeReactionDTO",
+        "Type": "FacebookClone.Core.DTO.RemoveReactionDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "FacebookClone.Controllers.RoleController",
     "Method": "Assign",
     "RelativePath": "api/Role/AssignUserToRole",
@@ -286,6 +318,22 @@
         "Name": "createRoleDTO",
         "Type": "FacebookClone.Core.DTO.CreateRoleDTO",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.RoleController",
+    "Method": "Delete",
+    "RelativePath": "api/Role/DeleteRole",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "rolename",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

@@ -1,6 +1,5 @@
 ﻿using FacebookClone.Core.DTO;
 using FacebookClone.Core.Models;
-using FacebookClone.Core.Repository.Auhtentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 
@@ -16,10 +15,10 @@ namespace FacebookClone.Controllers
 	[ApiController]
 	public class AuthenticationController : ControllerBase
 	{
-		private readonly Core.Repository.Auhtentication.IAuthenticationService _auth;
+		private readonly Core.IRepository.IAuthenticationService _auth;
 		private readonly UserManager<AppUser> _userManager;
 		private readonly SignInManager<AppUser> _signInManager;
-		public AuthenticationController(Core.Repository.Auhtentication.IAuthenticationService auth, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+		public AuthenticationController(Core.IRepository.IAuthenticationService auth, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
 		{
 			_auth = auth;
 
