@@ -1,6 +1,22 @@
 [
   {
-    "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
+    "ContainingType": "FacebookClone.Controllers.AuthenticationController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/Authentication",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.AuthenticationController",
     "Method": "ForgotPassword",
     "RelativePath": "api/Authentication/ForgotPassword",
     "HttpMethod": "GET",
@@ -16,7 +32,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
+    "ContainingType": "FacebookClone.Controllers.AuthenticationController",
     "Method": "Login",
     "RelativePath": "api/Authentication/Login",
     "HttpMethod": "POST",
@@ -32,7 +48,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
+    "ContainingType": "FacebookClone.Controllers.AuthenticationController",
     "Method": "ResetPassword",
     "RelativePath": "api/Authentication/ResetPassword",
     "HttpMethod": "PATCH",
@@ -48,7 +64,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
+    "ContainingType": "FacebookClone.Controllers.AuthenticationController",
     "Method": "SignUp",
     "RelativePath": "api/Authentication/SignUp",
     "HttpMethod": "POST",
@@ -64,7 +80,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FacebookClone.Controllers.Authentication.AuthenticationController",
+    "ContainingType": "FacebookClone.Controllers.AuthenticationController",
     "Method": "ValidateOtp",
     "RelativePath": "api/Authentication/ValidateOtp",
     "HttpMethod": "POST",
@@ -244,6 +260,22 @@
   },
   {
     "ContainingType": "FacebookClone.Controllers.RoleController",
+    "Method": "Assign",
+    "RelativePath": "api/Role/AssignUserToRole",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "assignRoleDTO",
+        "Type": "FacebookClone.Core.DTO.AssignRoleDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.RoleController",
     "Method": "Create",
     "RelativePath": "api/Role/Create",
     "HttpMethod": "POST",
@@ -251,9 +283,30 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "createRoleDTO",
+        "Type": "FacebookClone.Core.DTO.CreateRoleDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.RoleController",
+    "Method": "RemoveUserFromRole",
+    "RelativePath": "api/Role/RemoveUserFromRole",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
         "Name": "roleName",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
+      },
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
