@@ -62,7 +62,7 @@ namespace FacebookClone.Controllers
 				return BadRequest("Invalid GUID format for Post ID.");
 			}
 
-			var post = await _postrepository.GetByIdAsync(id);
+			var post = await _postrepository.GetByIdAsync(guidId);
 			if (post == null) return NotFound();
 
 			var postDto = new PostDTO
@@ -248,7 +248,39 @@ namespace FacebookClone.Controllers
 			}
 		}
 
+		[HttpDelete("Delete/{PostId}")]
+		[Authorize]
+		public async Task<IActionResult> Delete([FromQuery] string PostId)
+		{
+			try
+			{
+				if (!Guid.TryParse(PostId, out var parsedPostId))
+				{
+					return BadRequest("Invalid GUID format for Post ID.");
+				}
+
+
+				var userId= User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+
+				await _postService.DeletetAsync(parsedPostId, Guid.Parse(userId));
+				return Ok();
+			}
+			catch (KeyNotFoundException ex)
+			{
+				return NotFound(ex);
+			}catch(UnauthorizedAccessException ex)
+			{
+				return Unauthorized();
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(500, "An unexpected error occurred: " + ex.Message);
+			}
+		}
+
+	}
+
 
 	
-	}
 }

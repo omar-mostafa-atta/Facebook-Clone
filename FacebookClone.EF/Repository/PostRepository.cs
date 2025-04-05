@@ -87,7 +87,7 @@ namespace FacebookClone.Core.Services
 			}
 
 		
-			var post = await _postRepository.GetByIdAsync(postId);
+			var post = await _postRepository.GetByIdAsync(parsedPostId);
 			if (post == null)
 			{
 				throw new KeyNotFoundException("Post not found.");
@@ -150,8 +150,9 @@ namespace FacebookClone.Core.Services
 
 		public async Task SavePostAsync(Guid postId, Guid userId)
 		{
+
 			
-			var post = await _postRepository.GetByIdAsync(postId.ToString());
+			var post = await _postRepository.GetByIdAsync(postId);
 			if (post == null)
 			{
 				throw new KeyNotFoundException("Post not found.");
@@ -178,7 +179,7 @@ namespace FacebookClone.Core.Services
 		public async Task UnsavePostAsync(Guid postId, Guid userId)
 		{
 			
-			var post = await _postRepository.GetByIdAsync(postId.ToString());
+			var post = await _postRepository.GetByIdAsync(postId);
 			if (post == null)
 			{
 				throw new KeyNotFoundException("Post not found.");
@@ -196,7 +197,20 @@ namespace FacebookClone.Core.Services
 			await _savedPostsRepository.SaveChangesAsync();
 		}
 
-		
+		public async Task DeletetAsync(Guid postId, Guid userId)
+		{
+			var post = await _postRepository.GetByIdAsync(postId);
+			if (post == null)
+			{ throw new KeyNotFoundException("Post not found"); }
+			if (post.AppUserId != userId)
+			{
+				throw new UnauthorizedAccessException();
+
+			}
+			await _postRepository.Delete(post);
+			await _postRepository.SaveChangesAsync();
+
+		}
 
 	}
 }

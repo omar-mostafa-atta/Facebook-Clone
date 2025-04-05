@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "F:\\omarapi\\FacebookClone\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2814EA21-033C-4DF0-8273-371C7A771806}|FacebookClone.EF\\FacebookClone.EF.csproj|f:\\omarapi\\facebookclone\\facebookclone.ef\\repository\\commentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2814EA21-033C-4DF0-8273-371C7A771806}|FacebookClone.EF\\FacebookClone.EF.csproj|solutionrelative:facebookclone.ef\\repository\\commentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|f:\\omarapi\\facebookclone\\facebookclone\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|solutionrelative:facebookclone\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|f:\\omarapi\\facebookclone\\facebookclone\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|solutionrelative:facebookclone\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2814EA21-033C-4DF0-8273-371C7A771806}|FacebookClone.EF\\FacebookClone.EF.csproj|f:\\omarapi\\facebookclone\\facebookclone.ef\\repository\\commentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2814EA21-033C-4DF0-8273-371C7A771806}|FacebookClone.EF\\FacebookClone.EF.csproj|solutionrelative:facebookclone.ef\\repository\\commentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|f:\\omarapi\\facebookclone\\facebookclone\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|solutionrelative:facebookclone\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BADC81CB-1504-455F-BA9F-883095F9BF11}|FacebookClone.Core\\FacebookClone.Core.csproj|f:\\omarapi\\facebookclone\\facebookclone.core\\irepository\\icommentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BADC81CB-1504-455F-BA9F-883095F9BF11}|FacebookClone.Core\\FacebookClone.Core.csproj|solutionrelative:facebookclone.core\\irepository\\icommentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 83,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,52 +50,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\omarapi\\FacebookClone\\FacebookClone\\Program.cs",
-              "RelativeDocumentMoniker": "FacebookClone\\Program.cs",
-              "ToolTip": "F:\\omarapi\\FacebookClone\\FacebookClone\\Program.cs",
-              "RelativeToolTip": "FacebookClone\\Program.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAADwv00AAABUAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ICommentRepository.cs",
+              "DocumentMoniker": "F:\\omarapi\\FacebookClone\\FacebookClone.Core\\IRepository\\ICommentRepository.cs",
+              "RelativeDocumentMoniker": "FacebookClone.Core\\IRepository\\ICommentRepository.cs",
+              "ToolTip": "F:\\omarapi\\FacebookClone\\FacebookClone.Core\\IRepository\\ICommentRepository.cs",
+              "RelativeToolTip": "FacebookClone.Core\\IRepository\\ICommentRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T13:47:14.431Z"
+              "WhenOpened": "2025-04-05T13:12:17.112Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CommentRepository.cs",
               "DocumentMoniker": "F:\\omarapi\\FacebookClone\\FacebookClone.EF\\Repository\\CommentRepository.cs",
               "RelativeDocumentMoniker": "FacebookClone.EF\\Repository\\CommentRepository.cs",
               "ToolTip": "F:\\omarapi\\FacebookClone\\FacebookClone.EF\\Repository\\CommentRepository.cs",
               "RelativeToolTip": "FacebookClone.EF\\Repository\\CommentRepository.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAA4wBUAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAqwGMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-03T12:32:54.742Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "CommentController.cs",
               "DocumentMoniker": "F:\\omarapi\\FacebookClone\\FacebookClone\\Controllers\\CommentController.cs",
               "RelativeDocumentMoniker": "FacebookClone\\Controllers\\CommentController.cs",
               "ToolTip": "F:\\omarapi\\FacebookClone\\FacebookClone\\Controllers\\CommentController.cs",
               "RelativeToolTip": "FacebookClone\\Controllers\\CommentController.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAArwC4AAAADAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAACQAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T11:40:16.46Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PostController.cs",
-              "DocumentMoniker": "F:\\omarapi\\FacebookClone\\FacebookClone\\Controllers\\PostController.cs",
-              "RelativeDocumentMoniker": "FacebookClone\\Controllers\\PostController.cs",
-              "ToolTip": "F:\\omarapi\\FacebookClone\\FacebookClone\\Controllers\\PostController.cs",
-              "RelativeToolTip": "FacebookClone\\Controllers\\PostController.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwIQAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T19:26:36.954Z"
+              "WhenOpened": "2025-04-03T11:40:16.46Z",
+              "EditorCaption": ""
             }
           ]
         },

@@ -112,6 +112,54 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "FacebookClone.Controllers.CommentController",
+    "Method": "Delete",
+    "RelativePath": "api/Comment/Delete",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "commentId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.CommentController",
+    "Method": "Edit",
+    "RelativePath": "api/Comment/Edit",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updateCommentDTO",
+        "Type": "FacebookClone.Core.DTO.UpdateCommentDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.CommentController",
+    "Method": "GetPostComments",
+    "RelativePath": "api/Comment/GetPostComments/{postid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postid",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "FacebookClone.Controllers.PostController",
     "Method": "Create",
     "RelativePath": "api/Post/Create",
@@ -141,6 +189,27 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.PostController",
+    "Method": "Delete",
+    "RelativePath": "api/Post/Delete/{PostId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PostId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PostId",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "FacebookClone.Controllers.PostController",

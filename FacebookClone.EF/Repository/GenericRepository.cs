@@ -24,9 +24,10 @@ namespace FacebookClone.EF.Repository
 			await _dbSet.AddAsync(entity);
 		}
 
-		public void Delete(T entity)
+		public  Task Delete(T entity)
 		{
 			_dbSet.Remove(entity);
+			return Task.CompletedTask;
 		}
 
 		public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
@@ -39,10 +40,10 @@ namespace FacebookClone.EF.Repository
 			return await _dbSet.ToListAsync();
 		}
 
-		public async Task<T?> GetByIdAsync(string id)
+		public async Task<T?> GetByIdAsync(Guid id)
 		{
 			
-			return await _dbSet.FindAsync(Guid.Parse(id));
+			return await _dbSet.FindAsync(id);
 		}
 
 		public async Task<int> SaveChangesAsync()

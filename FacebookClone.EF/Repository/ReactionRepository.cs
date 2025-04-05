@@ -37,7 +37,12 @@ namespace FacebookClone.EF.Repository
 
 		public async Task<List<GetReactionsDTO>> GetReaction(string postId)
 		{
-			var Post=await _postgenericRepository.GetByIdAsync(postId);
+			if (!Guid.TryParse(postId, out var parsedPostId))
+			{
+				throw new ArgumentException("Invalid GUID format for Post ID.");
+			}
+
+			var Post=await _postgenericRepository.GetByIdAsync(parsedPostId);
 			if (Post == null)
 				throw new KeyNotFoundException("No Post for this Id");
 
@@ -60,7 +65,7 @@ namespace FacebookClone.EF.Repository
 				throw new Exception("Wrong GUID post format");
 			}
 
-			var existingPost = await _postgenericRepository.GetByIdAsync(addReactionDTO.PostId);
+			var existingPost = await _postgenericRepository.GetByIdAsync(parsedPostId);
 			if (existingPost == null)
 			{
 				throw new KeyNotFoundException("Post not found");
@@ -127,7 +132,7 @@ namespace FacebookClone.EF.Repository
 			}
 
 
-			var existingPost = await _postgenericRepository.GetByIdAsync(PostId);
+			var existingPost = await _postgenericRepository.GetByIdAsync(parsedPostId);
 			if (existingPost == null)
 			{
 				throw new KeyNotFoundException("Post not found");
@@ -143,7 +148,7 @@ namespace FacebookClone.EF.Repository
 			existingPost.TotalReactions = Math.Max(0, existingPost.TotalReactions - 1);
 
 			await _postgenericRepository.Update(existingPost);
-			_reactionsgenericRepository.Delete(existingReaction);
+			await _reactionsgenericRepository.Delete(existingReaction);
 			await _reactionsgenericRepository.SaveChangesAsync();
 
 		}
