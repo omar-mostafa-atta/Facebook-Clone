@@ -1,12 +1,362 @@
 {
   "Version": 1,
-  "Hash": "it8EyaFs0BgamhidV/wRYZHbgK/0Bpz+p1SVAIcET/E=",
+  "Hash": "WydT2LekrbnMAV1wd0mGqKr51XO6coH+w0In4rj+zGw=",
   "Source": "FacebookClone",
   "BasePath": "_content/FacebookClone",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "FacebookClone\\wwwroot",
+      "Source": "FacebookClone",
+      "ContentRoot": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\",
+      "BasePath": "_content/FacebookClone",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\yxtswum0w1-m0nm3g807b.gz",
+      "SourceId": "FacebookClone",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/FacebookClone",
+      "RelativePath": "signalr-client#[.{fingerprint=m0nm3g807b}]?.html.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\signalr-client.html",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "8bguduw0wl",
+      "Integrity": "FBOIkLo3jkpL0lcvm9iKR4hZ9YK+Xo5lvzy5pVHLQEc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\signalr-client.html"
+    },
+    {
+      "Identity": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\signalr-client.html",
+      "SourceId": "FacebookClone",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\",
+      "BasePath": "_content/FacebookClone",
+      "RelativePath": "signalr-client#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "m0nm3g807b",
+      "Integrity": "BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq+q4uXiqBE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\signalr-client.html"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "signalr-client.html",
+      "AssetFile": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\yxtswum0w1-m0nm3g807b.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002092050209"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "477"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FBOIkLo3jkpL0lcvm9iKR4hZ9YK+Xo5lvzy5pVHLQEc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 19:44:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq+q4uXiqBE=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq+q4uXiqBE="
+        }
+      ]
+    },
+    {
+      "Route": "signalr-client.html",
+      "AssetFile": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\signalr-client.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "865"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq+q4uXiqBE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 19:44:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq+q4uXiqBE="
+        }
+      ]
+    },
+    {
+      "Route": "signalr-client.html.gz",
+      "AssetFile": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\yxtswum0w1-m0nm3g807b.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "477"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FBOIkLo3jkpL0lcvm9iKR4hZ9YK+Xo5lvzy5pVHLQEc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 19:44:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FBOIkLo3jkpL0lcvm9iKR4hZ9YK+Xo5lvzy5pVHLQEc="
+        }
+      ]
+    },
+    {
+      "Route": "signalr-client.m0nm3g807b.html",
+      "AssetFile": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\yxtswum0w1-m0nm3g807b.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002092050209"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "477"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FBOIkLo3jkpL0lcvm9iKR4hZ9YK+Xo5lvzy5pVHLQEc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 19:44:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq+q4uXiqBE=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m0nm3g807b"
+        },
+        {
+          "Name": "label",
+          "Value": "signalr-client.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq+q4uXiqBE="
+        }
+      ]
+    },
+    {
+      "Route": "signalr-client.m0nm3g807b.html",
+      "AssetFile": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\signalr-client.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "865"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq+q4uXiqBE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 19:44:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m0nm3g807b"
+        },
+        {
+          "Name": "label",
+          "Value": "signalr-client.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq+q4uXiqBE="
+        }
+      ]
+    },
+    {
+      "Route": "signalr-client.m0nm3g807b.html.gz",
+      "AssetFile": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\yxtswum0w1-m0nm3g807b.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "477"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FBOIkLo3jkpL0lcvm9iKR4hZ9YK+Xo5lvzy5pVHLQEc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 19:44:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m0nm3g807b"
+        },
+        {
+          "Name": "label",
+          "Value": "signalr-client.html.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FBOIkLo3jkpL0lcvm9iKR4hZ9YK+Xo5lvzy5pVHLQEc="
+        }
+      ]
+    }
+  ]
 }

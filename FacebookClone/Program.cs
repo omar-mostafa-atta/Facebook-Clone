@@ -15,6 +15,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using Microsoft.AspNetCore.Http.Json;
+using FacebookClone.Hubs;
 
 namespace FacebookClone
 {
@@ -40,9 +41,10 @@ namespace FacebookClone
 			builder.Services.AddScoped<IGenericRepository<SavedPosts>, GenericRepository<SavedPosts>>();
 			builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<FacebookContext>().AddDefaultTokenProviders();
 			builder.Services.AddDbContext<FacebookContext>(options =>options.UseSqlServer(builder.Configuration.GetConnectionString("OmarConnection")));
-
 			builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 			builder.Services.AddAuthentication();
+			builder.Services.AddSignalR();
+
 			builder.Services.AddAuthentication(options =>
 			{
 				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -78,6 +80,7 @@ namespace FacebookClone
 			builder.Services.AddScoped<IGenericRepository<Comment>, GenericRepository<Comment>>();
 			builder.Services.AddScoped<IReactionRepository, ReactionRepository>();
 			builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+			builder.Services.AddScoped<IFriendShipRepository, FriendShipRepository>();
 			builder.Services.AddScoped<IMediaRepository, MediaRepository>();
 			builder.Services.Configure<JsonOptions>(options =>
 			{
@@ -105,13 +108,16 @@ namespace FacebookClone
 
 				await SeedRolesAndAdminAsync(roleManager, userManager);
 			}
+
+			app.UseStaticFiles();
 			app.UseHttpsRedirection();
+			app.UseAuthentication();
 
 			app.UseAuthorization();
 
 
 			app.MapControllers();
-
+			app.MapHub<PostHub>("/posthub");
 			app.Run();
 		}
 		private static async Task SeedRolesAndAdminAsync(RoleManager<AppRole> roleManager, UserManager<AppUser> userManager)

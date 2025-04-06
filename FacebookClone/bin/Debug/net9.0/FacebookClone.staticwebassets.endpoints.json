@@ -1,5 +1,304 @@
 {
   "Version": 1,
   "ManifestType": "Build",
-  "Endpoints": []
+  "Endpoints": [
+    {
+      "Route": "signalr-client.html",
+      "AssetFile": "signalr-client.html.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002092050209"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "477"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FBOIkLo3jkpL0lcvm9iKR4hZ9YK+Xo5lvzy5pVHLQEc=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq+q4uXiqBE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 19:44:57 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq+q4uXiqBE="
+        }
+      ]
+    },
+    {
+      "Route": "signalr-client.html",
+      "AssetFile": "signalr-client.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "865"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq+q4uXiqBE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 19:44:57 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq+q4uXiqBE="
+        }
+      ]
+    },
+    {
+      "Route": "signalr-client.html.gz",
+      "AssetFile": "signalr-client.html.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "477"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FBOIkLo3jkpL0lcvm9iKR4hZ9YK+Xo5lvzy5pVHLQEc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 19:44:57 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FBOIkLo3jkpL0lcvm9iKR4hZ9YK+Xo5lvzy5pVHLQEc="
+        }
+      ]
+    },
+    {
+      "Route": "signalr-client.m0nm3g807b.html",
+      "AssetFile": "signalr-client.html.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002092050209"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "477"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FBOIkLo3jkpL0lcvm9iKR4hZ9YK+Xo5lvzy5pVHLQEc=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq+q4uXiqBE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 19:44:57 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m0nm3g807b"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq+q4uXiqBE="
+        },
+        {
+          "Name": "label",
+          "Value": "signalr-client.html"
+        }
+      ]
+    },
+    {
+      "Route": "signalr-client.m0nm3g807b.html",
+      "AssetFile": "signalr-client.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "865"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq+q4uXiqBE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 19:44:57 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m0nm3g807b"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq+q4uXiqBE="
+        },
+        {
+          "Name": "label",
+          "Value": "signalr-client.html"
+        }
+      ]
+    },
+    {
+      "Route": "signalr-client.m0nm3g807b.html.gz",
+      "AssetFile": "signalr-client.html.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "477"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FBOIkLo3jkpL0lcvm9iKR4hZ9YK+Xo5lvzy5pVHLQEc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 06 Apr 2025 19:44:57 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m0nm3g807b"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FBOIkLo3jkpL0lcvm9iKR4hZ9YK+Xo5lvzy5pVHLQEc="
+        },
+        {
+          "Name": "label",
+          "Value": "signalr-client.html.gz"
+        }
+      ]
+    }
+  ]
 }

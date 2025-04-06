@@ -183,3 +183,6 @@ F:\omarapi\FacebookClone\FacebookClone\bin\Debug\net9.0\StackExchange.Redis.dll
 F:\omarapi\FacebookClone\FacebookClone\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.Google.dll
 F:\omarapi\FacebookClone\FacebookClone\bin\Debug\net9.0\CloudinaryDotNet.dll
 F:\omarapi\FacebookClone\FacebookClone\bin\Debug\net9.0\Newtonsoft.Json.dll
+F:\omarapi\FacebookClone\FacebookClone\bin\Debug\net9.0\System.Net.WebSockets.WebSocketProtocol.dll
+F:\omarapi\FacebookClone\FacebookClone\bin\Debug\net9.0\FacebookClone.staticwebassets.runtime.json
+F:\omarapi\FacebookClone\FacebookClone\obj\Debug\net9.0\compressed\yxtswum0w1-m0nm3g807b.gz

@@ -2,7 +2,6 @@
 using FacebookClone.Core.IRepository;
 using FacebookClone.Core.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,75 +11,82 @@ namespace FacebookClone.Controllers
 	[ApiController]
 	public class ReactionController : ControllerBase
 	{
-		
 		private readonly UserManager<AppUser> _userManager;
 		private readonly IReactionRepository _reactionRepository;
-		public ReactionController(  UserManager<AppUser> _userManager, IReactionRepository _reactionRepository)
-		{
-			
-			this._userManager= _userManager;
-			this._reactionRepository = _reactionRepository;
-		}
 
+		public ReactionController(UserManager<AppUser> userManager, IReactionRepository reactionRepository)
+		{
+			_userManager = userManager;
+			_reactionRepository = reactionRepository;
+		}
 
 		[HttpPost("AddReaction")]
 		[Authorize]
 		public async Task<IActionResult> AddReaction(AddReactionDTO addReactionDTO)
 		{
-			try
+			return await HandleRequest(async () =>
 			{
 				var user = await _userManager.GetUserAsync(User);
 				if (user == null)
-					return Unauthorized();
+					throw new UnauthorizedAccessException("User not authenticated.");
+
 				await _reactionRepository.AddReaction(addReactionDTO, user);
 				return Ok("Reaction is Added");
-			}
-			catch (KeyNotFoundException ex)
-			{
-				return NotFound(ex.Message);
-			}
-			catch (Exception ex)
-			{
-				return StatusCode(500, $"An error occurred: {ex.Message}");
-			}
+			});
 		}
 
 		[HttpPost("RemoveReaction")]
 		[Authorize]
 		public async Task<IActionResult> RemoveReaction([FromBody] RemoveReactionDTO removeReactionDTO)
 		{
-			try
+			return await HandleRequest(async () =>
 			{
 				var user = await _userManager.GetUserAsync(User);
 				if (user == null)
-					return Unauthorized();
+					throw new UnauthorizedAccessException("User not authenticated.");
 
 				await _reactionRepository.RemoveReaction(removeReactionDTO.PostId, user);
 				return Ok("Reaction is Removed");
-			}
-			catch (KeyNotFoundException ex)
-			{
-				return NotFound(ex.Message);
-			}
-			catch (Exception ex)
-			{
-				return StatusCode(500, $"An error occurred: {ex.Message}");
-			}
+			});
 		}
+
 		[HttpGet("GetPostReactions")]
-		public async Task<IActionResult> GetReaction([FromQuery]string postId)
+		public async Task<IActionResult> GetReaction([FromQuery] string postId)
+		{
+			return await HandleRequest(async () =>
+			{
+				if (string.IsNullOrEmpty(postId) || !Guid.TryParse(postId, out _))
+				{
+					throw new ArgumentException("Invalid Post ID format.");
+				}
+
+				var reactions = await _reactionRepository.GetReaction(postId);
+				return Ok(reactions);
+			});
+		}
+
+		private async Task<IActionResult> HandleRequest(Func<Task<IActionResult>> action)
 		{
 			try
 			{
-				var reactions = await _reactionRepository.GetReaction(postId);
-				return Ok(reactions);
+				return await action();
 			}
 			catch (KeyNotFoundException ex)
 			{
-
 				return NotFound(ex.Message);
 			}
+			catch (ArgumentException ex)
+			{
+				return BadRequest(ex.Message);
+			}
+			catch (UnauthorizedAccessException ex)
+			{
+				return Unauthorized(ex.Message);
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(500, "An unexpected error occurred: " + ex.Message);
+			}
 		}
-
 	}
 }

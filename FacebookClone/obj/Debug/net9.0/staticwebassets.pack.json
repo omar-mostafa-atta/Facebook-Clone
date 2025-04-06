@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\signalr-client.html",
+      "PackagePath": "staticwebassets\\signalr-client.html"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.FacebookClone.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.FacebookClone.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.FacebookClone.props",
+      "PackagePath": "build\\FacebookClone.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.FacebookClone.props",
+      "PackagePath": "buildMultiTargeting\\FacebookClone.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.FacebookClone.props",
+      "PackagePath": "buildTransitive\\FacebookClone.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

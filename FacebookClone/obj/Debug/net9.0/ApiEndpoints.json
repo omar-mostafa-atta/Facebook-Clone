@@ -160,6 +160,48 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "FacebookClone.API.Controllers.FriendshipController",
+    "Method": "GetPendingRequests",
+    "RelativePath": "api/Friendship/pending-requests",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.API.Controllers.FriendshipController",
+    "Method": "RemoveFriendRequest",
+    "RelativePath": "api/Friendship/remove-request/{friendshipId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "friendshipId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.API.Controllers.FriendshipController",
+    "Method": "SendFriendRequest",
+    "RelativePath": "api/Friendship/send-request",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "FacebookClone.Core.DTO.FriendRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "FacebookClone.Controllers.PostController",
     "Method": "Create",
     "RelativePath": "api/Post/Create",
@@ -225,7 +267,17 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "FacebookClone.Core.DTO.PostDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "FacebookClone.Controllers.PostController",
@@ -235,7 +287,17 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[FacebookClone.Core.DTO.PostDTO, FacebookClone.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "FacebookClone.Controllers.PostController",
@@ -251,7 +313,17 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[FacebookClone.Core.DTO.PostDTO, FacebookClone.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "FacebookClone.Controllers.PostController",

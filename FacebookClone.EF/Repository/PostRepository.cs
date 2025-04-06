@@ -1,6 +1,8 @@
 ﻿using FacebookClone.Core.DTO;
 using FacebookClone.Core.IRepository;
 using FacebookClone.Core.Models;
+using FacebookClone.Hubs;
+using Microsoft.AspNetCore.SignalR;
 
 
 namespace FacebookClone.Core.Services
@@ -10,13 +12,16 @@ namespace FacebookClone.Core.Services
 		private readonly IGenericRepository<Post> _postRepository;
 		private readonly IMediaRepository _mediaService;
 		private readonly IGenericRepository<SavedPosts> _savedPostsRepository;
+		private readonly IHubContext<PostHub> _hubContext;
 		public PostRepository( IGenericRepository<Post> postRepository, 
 			IMediaRepository mediaService, 
-			IGenericRepository<SavedPosts> savedPostsRepository)
+			IGenericRepository<SavedPosts> savedPostsRepository,
+			IHubContext<PostHub> hubContext)
 		{
 			_postRepository = postRepository;
 			_mediaService = mediaService;
 			_savedPostsRepository = savedPostsRepository;
+			_hubContext = hubContext;
 			
 		}
 
@@ -56,8 +61,8 @@ namespace FacebookClone.Core.Services
 				 
 			}
 
-			
-			return new PostDTO
+
+			var postDto = new PostDTO
 			{
 				Id = post.Id,
 				Text = post.Text,
@@ -74,6 +79,11 @@ namespace FacebookClone.Core.Services
 					PostId = m.PostId
 				}).ToList()
 			};
+
+		 
+			await _hubContext.Clients.All.SendAsync("ReceivePost", postDto);
+
+			return postDto;
 		}
 
 	 

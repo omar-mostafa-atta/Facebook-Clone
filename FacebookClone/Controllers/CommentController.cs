@@ -13,13 +13,13 @@ namespace FacebookClone.Controllers
 	[ApiController]
 	public class CommentController : ControllerBase
 	{
-		private readonly IPostRepository _postService;
+		 
 		private readonly UserManager<AppUser> _userManager;
 		private readonly ICommentRepository _commentRepository;
 
-		public CommentController(IPostRepository _postService, UserManager<AppUser> _userManager, ICommentRepository commentRepository)
+		public CommentController(  UserManager<AppUser> _userManager, ICommentRepository commentRepository)
 		{
-			this._postService = _postService;
+		 
 			this._userManager = _userManager;
 			_commentRepository = commentRepository;
 		}

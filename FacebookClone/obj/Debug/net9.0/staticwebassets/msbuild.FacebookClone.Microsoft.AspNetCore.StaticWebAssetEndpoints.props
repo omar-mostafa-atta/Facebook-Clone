@@ -1,0 +1,16 @@
+﻿<Project>
+  <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/FacebookClone/signalr-client.html">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\signalr-client.html'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq\u002Bq4uXiqBE="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"865"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq\u002Bq4uXiqBE=\u0022"},{"Name":"Last-Modified","Value":"Sun, 06 Apr 2025 19:44:57 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/FacebookClone/signalr-client.m0nm3g807b.html">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\signalr-client.html'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"m0nm3g807b"},{"Name":"integrity","Value":"sha256-BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq\u002Bq4uXiqBE="},{"Name":"label","Value":"_content/FacebookClone/signalr-client.html"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"865"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq\u002Bq4uXiqBE=\u0022"},{"Name":"Last-Modified","Value":"Sun, 06 Apr 2025 19:44:57 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+  </ItemGroup>
+</Project>
