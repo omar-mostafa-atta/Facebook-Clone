@@ -13,7 +13,7 @@ namespace FacebookClone.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	public class AuthenticationController : ControllerBase
+	public class AuthenticationController : BaseController
 	{
 		private readonly Core.IRepository.IAuthenticationService _auth;
 		private readonly UserManager<AppUser> _userManager;

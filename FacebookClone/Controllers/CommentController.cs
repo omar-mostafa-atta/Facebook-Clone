@@ -11,7 +11,7 @@ namespace FacebookClone.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	public class CommentController : ControllerBase
+	public class CommentController : BaseController
 	{
 		 
 		private readonly UserManager<AppUser> _userManager;
@@ -79,28 +79,6 @@ namespace FacebookClone.Controllers
 			});
 		}
 
-		private async Task<IActionResult> HandleRequest(Func<Task<IActionResult>> action)
-		{
-			try
-			{
-				return await action();
-			}
-			catch (KeyNotFoundException ex)
-			{
-				return NotFound(ex.Message);
-			}
-			catch (ArgumentException ex)
-			{
-				return BadRequest(ex.Message);
-			}
-			catch (UnauthorizedAccessException ex)
-			{
-				return Unauthorized(ex.Message);
-			}
-			catch (Exception ex)
-			{
-				return StatusCode(500, "An unexpected error occurred: " + ex.Message);
-			}
-		}
+		
 	}
 }

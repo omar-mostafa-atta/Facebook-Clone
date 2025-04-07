@@ -152,5 +152,43 @@ namespace FacebookClone.EF.Repository
 			await _reactionsgenericRepository.SaveChangesAsync();
 
 		}
+
+		public async Task<ReactionCountDTO> GetReactionCountByPostId(string postId)
+		{
+			if (!Guid.TryParse(postId, out var parsedPostId))
+			{
+				throw new ArgumentException("Invalid GUID format for Post ID.");
+			}
+
+			var grouped = await _context.Reactions
+				.Where(r => r.PostId == parsedPostId)
+				.GroupBy(r => r.ReactionType)
+				.Select(g => new { Type = g.Key, Count = g.Count() })
+				.ToListAsync();
+
+			var dto = new ReactionCountDTO();
+
+			foreach (var g in grouped)
+			{
+				switch (g.Type)
+				{
+					case ReactionType.like:
+						dto.Likes = g.Count;
+						break;
+					case ReactionType.love:
+						dto.Loves = g.Count;
+						break;
+					case ReactionType.angry:
+						dto.Angries = g.Count;
+						break;
+					case ReactionType.sad:
+						dto.Sads = g.Count;
+						break;
+				}
+			}
+
+			return dto;
+		}
+
 	}
 }

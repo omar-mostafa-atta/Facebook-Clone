@@ -40,6 +40,8 @@ namespace FacebookClone.EF.Repository
 				AppUserId = user.Id
 
 			};
+			post.TotalComments += 1;
+			await _postgenericRepository.Update(post);
 			await _commentgenericRepository.AddAsync(comment);
 			await _commentgenericRepository.SaveChangesAsync();
 		}
@@ -81,6 +83,14 @@ namespace FacebookClone.EF.Repository
 			else if(comment.AppUserId!=user.Id)
 				throw new UnauthorizedAccessException();
 
+			var post = await _postgenericRepository.GetByIdAsync(comment.PostId);
+			
+			if (post == null)
+				throw new KeyNotFoundException("Post not found for this comment");
+
+			post.TotalReactions = Math.Max(0, post.TotalComments - 1);
+
+			await _postgenericRepository.Update(post);
 			await _commentgenericRepository.Delete(comment);
 			await _commentgenericRepository.SaveChangesAsync();
 		}

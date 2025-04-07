@@ -7,7 +7,7 @@ namespace FacebookClone.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	public class RoleController : ControllerBase
+	public class RoleController : BaseController
 	{
 		private readonly RoleManager<AppRole> _roleManager;
 		private readonly UserManager<AppUser> _userManager;

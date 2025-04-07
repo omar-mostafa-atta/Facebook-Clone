@@ -11,7 +11,7 @@ namespace FacebookClone.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	public class PostController : ControllerBase
+	public class PostController : BaseController
 	{
 		private readonly IGenericRepository<Post> _postrepository;
 		private readonly IMediaRepository _mediaService;
@@ -137,7 +137,7 @@ namespace FacebookClone.Controllers
 
 		[HttpPost("Create")]
 		[Authorize]
-		public async Task<ActionResult<PostDTO>> Create([FromForm] CreateAndUpdatePostDTO createPostDto)
+		public async Task<ActionResult<PostDTO>> Create( CreateAndUpdatePostDTO createPostDto)
 		{
 			return await HandleRequest<PostDTO>(async () =>
 			{
@@ -231,6 +231,7 @@ namespace FacebookClone.Controllers
 			});
 		}
 
+
 		private async Task<ActionResult<T>> HandleRequest<T>(Func<Task<ActionResult<T>>> action)
 		{
 			try
@@ -255,28 +256,5 @@ namespace FacebookClone.Controllers
 			}
 		}
 
-		private async Task<IActionResult> HandleRequest(Func<Task<IActionResult>> action)
-		{
-			try
-			{
-				return await action();
-			}
-			catch (KeyNotFoundException ex)
-			{
-				return NotFound(ex.Message);
-			}
-			catch (ArgumentException ex)
-			{
-				return BadRequest(ex.Message);
-			}
-			catch (UnauthorizedAccessException ex)
-			{
-				return Unauthorized(ex.Message);
-			}
-			catch (Exception ex)
-			{
-				return StatusCode(500, "An unexpected error occurred: " + ex.Message);
-			}
-		}
 	}
 }

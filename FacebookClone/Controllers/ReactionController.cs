@@ -9,7 +9,7 @@ namespace FacebookClone.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	public class ReactionController : ControllerBase
+	public class ReactionController : BaseController
 	{
 		private readonly UserManager<AppUser> _userManager;
 		private readonly IReactionRepository _reactionRepository;
@@ -65,28 +65,22 @@ namespace FacebookClone.Controllers
 			});
 		}
 
-		private async Task<IActionResult> HandleRequest(Func<Task<IActionResult>> action)
+		[HttpGet("GetReactionCounts")]
+		[Authorize]
+		public async Task<IActionResult> GetReactionCounts([FromQuery] string postId)
 		{
-			try
+			return await HandleRequest(async () =>
 			{
-				return await action();
-			}
-			catch (KeyNotFoundException ex)
-			{
-				return NotFound(ex.Message);
-			}
-			catch (ArgumentException ex)
-			{
-				return BadRequest(ex.Message);
-			}
-			catch (UnauthorizedAccessException ex)
-			{
-				return Unauthorized(ex.Message);
-			}
-			catch (Exception ex)
-			{
-				return StatusCode(500, "An unexpected error occurred: " + ex.Message);
-			}
+				if (string.IsNullOrEmpty(postId) || !Guid.TryParse(postId, out _))
+				{
+					throw new ArgumentException("Invalid Post ID format.");
+				}
+
+				var reactionCounts = await _reactionRepository.GetReactionCountByPostId(postId);
+				return Ok(reactionCounts);
+			});
 		}
+
+	 
 	}
 }

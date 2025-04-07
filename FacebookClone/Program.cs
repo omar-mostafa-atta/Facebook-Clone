@@ -42,6 +42,15 @@ namespace FacebookClone
 			builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<FacebookContext>().AddDefaultTokenProviders();
 			builder.Services.AddDbContext<FacebookContext>(options =>options.UseSqlServer(builder.Configuration.GetConnectionString("OmarConnection")));
 			builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+			builder.Services.AddScoped<IGenericRepository<Media>, GenericRepository<Media>>();
+			builder.Services.AddScoped<IGenericRepository<Post>, GenericRepository<Post>>();
+			builder.Services.AddScoped<IGenericRepository<Reactions>, GenericRepository<Reactions>>();
+			builder.Services.AddScoped<IGenericRepository<Comment>, GenericRepository<Comment>>();
+			builder.Services.AddScoped<IReactionRepository, ReactionRepository>();
+			builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+			builder.Services.AddScoped<IFriendShipRepository, FriendShipRepository>();
+			builder.Services.AddScoped<IMediaRepository, MediaRepository>();
+			builder.Services.AddScoped<IUserRepository, UserRepository>();
 			builder.Services.AddAuthentication();
 			builder.Services.AddSignalR();
 
@@ -49,8 +58,7 @@ namespace FacebookClone
 			{
 				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
 				options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-			})
-				.AddJwtBearer(options =>
+			}).AddJwtBearer(options =>
 					{
 						options.RequireHttpsMetadata = false;
 						options.SaveToken = true;
@@ -64,7 +72,7 @@ namespace FacebookClone
 							ValidAudience = builder.Configuration["JWT:Audience"],
 							ValidateLifetime = true
 						};
-					});
+			  });
 			builder.Services.AddAuthorization();
 
 			var cloudinaryConfig = builder.Configuration.GetSection("Cloudinary");
@@ -74,14 +82,6 @@ namespace FacebookClone
 				cloudinaryConfig["ApiSecret"]
 			));
 			builder.Services.AddSingleton(cloudinary);
-			builder.Services.AddScoped<IGenericRepository<Media>, GenericRepository<Media>>();
-			builder.Services.AddScoped<IGenericRepository<Post>, GenericRepository<Post>>();
-			builder.Services.AddScoped<IGenericRepository<Reactions>, GenericRepository<Reactions>>();
-			builder.Services.AddScoped<IGenericRepository<Comment>, GenericRepository<Comment>>();
-			builder.Services.AddScoped<IReactionRepository, ReactionRepository>();
-			builder.Services.AddScoped<ICommentRepository, CommentRepository>();
-			builder.Services.AddScoped<IFriendShipRepository, FriendShipRepository>();
-			builder.Services.AddScoped<IMediaRepository, MediaRepository>();
 			builder.Services.Configure<JsonOptions>(options =>
 			{
 				options.SerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase, allowIntegerValues: false));

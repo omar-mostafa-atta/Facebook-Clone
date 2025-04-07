@@ -15,6 +15,7 @@ namespace FacebookClone.Core.Models
 		public DateTime UpdatedAt { get; set; }
 
 		public int TotalReactions { get; set; }
+		public int TotalComments { get; set; }
 
 		public Guid AppUserId { get; set; }
 		public AppUser AppUser { get; set; }

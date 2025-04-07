@@ -1,4 +1,5 @@
-﻿using FacebookClone.Core.DTO;
+﻿using FacebookClone.Controllers;
+using FacebookClone.Core.DTO;
 using FacebookClone.Core.IRepository;
 using FacebookClone.Core.Models;
 using FacebookClone.Core.Services;
@@ -11,7 +12,7 @@ namespace FacebookClone.API.Controllers
 	[Authorize]
 	[Route("api/[controller]")]
 	[ApiController]
-	public class FriendshipController : ControllerBase
+	public class FriendshipController : BaseController
 	{
 		private readonly IFriendShipRepository _friendshipService;
 
@@ -72,33 +73,7 @@ namespace FacebookClone.API.Controllers
 			});
 		}
 
-		private async Task<IActionResult> HandleRequest(Func<Task<IActionResult>> action)
-		{
-			try
-			{
-				return await action();
-			}
-			catch (KeyNotFoundException ex)
-			{
-				return NotFound(ex.Message);
-			}
-			catch (ArgumentException ex)
-			{
-				return BadRequest(ex.Message);
-			}
-			catch (UnauthorizedAccessException ex)
-			{
-				return Unauthorized(ex.Message);
-			}
-			catch (InvalidOperationException ex)
-			{
-				return BadRequest(ex.Message);
-			}
-			catch (Exception ex)
-			{
-				return StatusCode(500, "An unexpected error occurred: " + ex.Message);
-			}
-		}
+	
 	}
 
 	 
