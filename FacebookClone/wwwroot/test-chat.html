@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Facebook Clone Chat Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+</head>
+<body>
+    <h2>Test SignalR Chat</h2>
+    <label>Sender ID:</label><br>
+    <input id="senderId" type="text" placeholder="Sender Guid"><br><br>
+
+    <label>Receiver ID:</label><br>
+    <input id="receiverId" type="text" placeholder="Receiver Guid"><br><br>
+
+    <label>Message:</label><br>
+    <input id="messageInput" type="text" placeholder="Type message here"><br><br>
+
+    <button onclick="connectToHub()">Connect to Chat</button>
+    <button onclick="sendMessage()" disabled id="sendButton">Send Message</button>
+
+    <h3>Received Messages:</h3>
+    <ul id="messagesList"></ul>
+
+    <script>
+        let connection = null;
+        let senderId = null;
+
+        // Enable the send button only after connecting
+        function enableSendButton() {
+            document.getElementById("sendButton").disabled = false;
+        }
+
+        // Connect to the SignalR hub
+        async function connectToHub() {
+            senderId = document.getElementById("senderId").value;
+            if (!senderId) {
+                alert("Please enter a Sender ID before connecting.");
+                return;
+            }
+
+            // Initialize the SignalR connection
+            connection = new signalR.HubConnectionBuilder()
+                .withUrl(`https://localhost:7281/chathub?userId=${senderId}`)
+                .build();
+
+            // Handle incoming messages
+            connection.on("ReceiveMessage", function (message) {
+                console.log("Received message:", message);
+                if (!message || !message.senderId || !message.content || !message.timestamp) {
+                    console.error("Invalid message format:", message);
+                    return;
+                }
+                const li = document.createElement("li");
+                li.textContent = `[${message.timestamp}] ${message.senderId}: ${message.content}`;
+                document.getElementById("messagesList").appendChild(li);
+            });
+
+            // Handle connection close and reconnection
+            connection.onclose(async () => {
+                console.log("SignalR connection closed. Attempting to reconnect...");
+                await startConnection();
+            });
+
+            // Start the connection
+            await startConnection();
+            enableSendButton();
+        }
+
+        async function startConnection() {
+            try {
+                await connection.start();
+                console.log("Connected to SignalR hub");
+            } catch (err) {
+                console.error("SignalR connection error:", err.toString());
+                setTimeout(startConnection, 5000); // Retry every 5 seconds
+            }
+        }
+
+        async function sendMessage() {
+            const senderId = document.getElementById("senderId").value;
+            const receiverId = document.getElementById("receiverId").value;
+            const content = document.getElementById("messageInput").value;
+
+            if (!senderId || !receiverId || !content) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            try {
+                const response = await fetch("https://localhost:7281/api/chat/send", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ senderId, receiverId, content })
+                });
+
+                if (!response.ok) {
+                    console.error("API error:", await response.text());
+                } else {
+                    console.log("Message sent successfully");
+                    // Display the sent message in the sender's tab
+                    const timestamp = new Date().toISOString();
+                    const li = document.createElement("li");
+                    li.textContent = `[${timestamp}] ${senderId}: ${message.content}`;
+                    document.getElementById("messagesList").appendChild(li);
+                    document.getElementById("messageInput").value = "";
+                }
+            } catch (err) {
+                console.error("Fetch error:", err);
+            }
+        }
+    </script>
+</body>
+</html>

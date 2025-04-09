@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SignalR Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+</head>
+<body>
+    <h2>Real-time Posts:</h2>
+    <ul id="posts"></ul>
+
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("https://localhost:7281/postHub")  
+            .build();
+
+        connection.on("ReceivePost", function(post) {
+            const li = document.createElement("li");
+            li.innerText = `Post: ${post.text} (ID: ${post.id})`;
+            document.getElementById("posts").appendChild(li);
+        });
+
+        connection.start()
+            .then(() => console.log("✅ Connected to SignalR"))
+            .catch(err => console.error("❌ Connection failed: ", err));
+    </script>
+</body>
+</html>
