@@ -26,7 +26,7 @@ namespace FacebookClone.Controllers
 
 		[HttpPost("Add")]
 		[Authorize]
-		public async Task<IActionResult> Add(AddCommentDTO addCommentDTO)
+		public async Task<IActionResult> Add([FromBody]AddCommentDTO addCommentDTO)
 		{
 			return await HandleRequest(async () =>
 			{
@@ -53,7 +53,7 @@ namespace FacebookClone.Controllers
 		}
 
 
-		[HttpDelete("Delete")]
+		[HttpDelete("Delete/{commentId}")]
 		[Authorize]
 		public async Task<IActionResult> Delete(string commentId)
 		{
@@ -70,11 +70,11 @@ namespace FacebookClone.Controllers
 
 		[HttpGet("GetPostComments/{postid}")]
 		[Authorize]
-		public async Task<IActionResult> GetPostComments(string postid)
+		public async Task<IActionResult> GetPostComments(string postId, [FromQuery]int pageNumber = 1, [FromQuery] int pageSize = 10)
 		{
 			return await HandleRequest(async () =>
 			{
-				var comments=await _commentRepository.GetPostComments(postid);
+				var comments=await _commentRepository.GetPostComments(postId, pageNumber, pageSize);
 				return Ok(comments);
 			});
 		}

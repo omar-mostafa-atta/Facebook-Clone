@@ -7,6 +7,7 @@ namespace FacebookClone.Controllers
 	[ApiController]
 	public class BaseController : ControllerBase
 	{
+		 
 
 		protected async Task<IActionResult> HandleRequest(Func<Task<IActionResult>> action)
 		{
@@ -28,8 +29,10 @@ namespace FacebookClone.Controllers
 			}
 			catch (Exception ex)
 			{
+				 
 				return StatusCode(500, "An unexpected error occurred: " + ex.Message);
 			}
+			 
 		}
 
  

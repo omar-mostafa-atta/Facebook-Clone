@@ -30,7 +30,6 @@
             document.getElementById("sendButton").disabled = false;
         }
 
-        // Connect to the SignalR hub
         async function connectToHub() {
             senderId = document.getElementById("senderId").value;
             if (!senderId) {
@@ -38,7 +37,6 @@
                 return;
             }
 
-            // Initialize the SignalR connection
             connection = new signalR.HubConnectionBuilder()
                 .withUrl(`https://localhost:7281/chathub?userId=${senderId}`)
                 .build();
@@ -50,9 +48,19 @@
                     console.error("Invalid message format:", message);
                     return;
                 }
-                const li = document.createElement("li");
-                li.textContent = `[${message.timestamp}] ${message.senderId}: ${message.content}`;
-                document.getElementById("messagesList").appendChild(li);
+                appendMessage(message.senderId, message.content, message.timestamp, message.messageId);
+
+            });
+
+            // Handle deleted messages
+            connection.on("MessageDeleted", function (data) {
+                console.log("Message deleted:", data);
+                const messageElement = document.querySelector(`[data-message-id="${data.messageId}"]`);
+                if (messageElement) {
+                    messageElement.remove();
+                } else {
+                    console.warn("Deleted message not found in UI:", data.messageId);
+                }
             });
 
             // Handle connection close and reconnection
@@ -74,6 +82,20 @@
                 console.error("SignalR connection error:", err.toString());
                 setTimeout(startConnection, 5000); // Retry every 5 seconds
             }
+        }
+
+        function appendMessage(senderId, content, timestamp, messageId) {
+            const li = document.createElement("li");
+            li.setAttribute("data-message-id", messageId);
+            li.textContent = `[${timestamp}] ${senderId}: ${content}`;
+
+            // Add delete button
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.onclick = () => deleteMessage(messageId);
+            li.appendChild(deleteButton);
+
+            document.getElementById("messagesList").appendChild(li);
         }
 
         async function sendMessage() {
@@ -98,16 +120,35 @@
                 if (!response.ok) {
                     console.error("API error:", await response.text());
                 } else {
-                    console.log("Message sent successfully");
+                    const result = await response.json();
+                    console.log("Message sent successfully:", result);
                     // Display the sent message in the sender's tab
-                    const timestamp = new Date().toISOString();
-                    const li = document.createElement("li");
-                    li.textContent = `[${timestamp}] ${senderId}: ${message.content}`;
-                    document.getElementById("messagesList").appendChild(li);
+                    appendMessage(senderId, content, result.sentAt, result.messageId);
                     document.getElementById("messageInput").value = "";
                 }
             } catch (err) {
                 console.error("Fetch error:", err);
+            }
+        }
+
+        async function deleteMessage(messageId) {
+            try {
+                const response = await fetch(`https://localhost:7281/api/chat/delete/${messageId}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+
+                if (!response.ok) {
+                    console.error("Delete API error:", await response.text());
+                    alert("Failed to delete message.");
+                } else {
+                    console.log("Message deleted successfully");
+                }
+            } catch (err) {
+                console.error("Delete fetch error:", err);
+                alert("Error deleting message.");
             }
         }
     </script>

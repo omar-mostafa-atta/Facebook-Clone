@@ -3,6 +3,7 @@ using FacebookClone.Core.IRepository;
 using FacebookClone.Core.Models;
 using FacebookClone.Hubs;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace FacebookClone.Core.Services
@@ -13,16 +14,76 @@ namespace FacebookClone.Core.Services
 		private readonly IMediaRepository _mediaService;
 		private readonly IGenericRepository<SavedPosts> _savedPostsRepository;
 		private readonly IHubContext<PostHub> _hubContext;
-		public PostRepository( IGenericRepository<Post> postRepository, 
-			IMediaRepository mediaService, 
+		private readonly IGenericRepository<AppUser> _userRepository;
+		public PostRepository(IGenericRepository<Post> postRepository,
+			IMediaRepository mediaService,
 			IGenericRepository<SavedPosts> savedPostsRepository,
-			IHubContext<PostHub> hubContext)
+			IHubContext<PostHub> hubContext,
+			IGenericRepository<AppUser> userRepository)
 		{
 			_postRepository = postRepository;
 			_mediaService = mediaService;
 			_savedPostsRepository = savedPostsRepository;
 			_hubContext = hubContext;
-			
+			_userRepository = userRepository;
+		}
+
+
+		public async Task<List<PostDTO>> GetUserPosts(string id, int pageNumber = 1, int pageSize = 10, string sortBy = "CreatedAt", string sortDirection = "desc")
+		{
+			if (!Guid.TryParse(id, out var userId))
+			{
+				throw new ArgumentException("Invalid GUID format for User ID.");
+			}
+
+			var user = await _userRepository.GetByIdAsync(userId);
+			if (user == null)
+			{
+				throw new KeyNotFoundException("User not found");
+			}
+
+			var postsQuery = _postRepository.AsQueryable().Where(p => p.AppUserId == userId);
+
+		 
+			postsQuery = sortBy.ToLower() switch// el switcch de bt3ml check hya updatedat wla ay aga tania w lesa tal3a gded f .net 8
+			{
+				"updatedat" => sortDirection.ToLower() == "asc"
+					? postsQuery.OrderBy(p => p.UpdatedAt)
+					: postsQuery.OrderByDescending(p => p.UpdatedAt),
+
+				_ => sortDirection.ToLower() == "asc"
+					? postsQuery.OrderBy(p => p.CreatedAt)
+					: postsQuery.OrderByDescending(p => p.CreatedAt),
+			};
+
+			postsQuery = postsQuery
+				.Skip((pageNumber - 1) * pageSize)
+				.Take(pageSize);
+
+			var posts = await postsQuery.ToListAsync();
+
+			if (posts == null || !posts.Any())
+				throw new KeyNotFoundException("This user has no posts.");
+
+			var postDtos = posts.Select(post => new PostDTO
+			{
+				Id = post.Id,
+				Text = post.Text,
+				CreatedAt = post.CreatedAt,
+				UpdatedAt = post.UpdatedAt,
+				TotalReactions = post.TotalReactions,
+				AppUserId = post.AppUserId,
+				Media = post.Media.Select(media => new MediaDto
+				{
+					Id = media.Id,
+					Type = media.Type,
+					Url = media.Url,
+					PublicId = media.PublicId,
+					PostId = media.PostId
+				}).ToList()
+			}).ToList();
+
+			return postDtos;
 		}
 
 		public async Task<PostDTO> CreatePostAsync(CreateAndUpdatePostDTO createPostDto, Guid userId)
@@ -86,8 +147,7 @@ namespace FacebookClone.Core.Services
 			return postDto;
 		}
 
-	 
-
+	
 		public async Task<PostDTO> UpdatePostAsync(string postId, CreateAndUpdatePostDTO updatePostDto, Guid userId)
 		{
 			
@@ -136,10 +196,9 @@ namespace FacebookClone.Core.Services
 
 			
 			await _postRepository.Update(post);
-			 
 
-			
-			return new PostDTO
+
+			var postDto = new PostDTO
 			{
 				Id = post.Id,
 				Text = post.Text,
@@ -156,6 +215,11 @@ namespace FacebookClone.Core.Services
 					PostId = m.PostId
 				}).ToList()
 			};
+
+			 
+			await _hubContext.Clients.All.SendAsync("ReceiveUpdatedPost", postDto);
+
+			return postDto;
 		}
 
 		public async Task SavePostAsync(Guid postId, Guid userId)
@@ -217,9 +281,10 @@ namespace FacebookClone.Core.Services
 				throw new UnauthorizedAccessException();
 
 			}
+			 
 			await _postRepository.Delete(post);
 			await _postRepository.SaveChangesAsync();
-
+			await _hubContext.Clients.All.SendAsync("ReceiveDeletedPost", postId);
 		}
 
 	}

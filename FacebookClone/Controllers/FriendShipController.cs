@@ -56,7 +56,7 @@ namespace FacebookClone.API.Controllers
 			});
 		}
 
-		[HttpDelete("remove-request/{friendshipId}")]
+		[HttpDelete("RemoveRequest/{friendshipId}")]
 		public async Task<IActionResult> RemoveFriendRequest(string friendshipId)
 		{
 			return await HandleRequest(async () =>

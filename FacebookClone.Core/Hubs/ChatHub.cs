@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using FacebookClone.Core.Models;
+using Microsoft.AspNetCore.SignalR;
 
 namespace FacebookClone.API.Hubs
 {
@@ -26,14 +27,23 @@ namespace FacebookClone.API.Hubs
 			await base.OnDisconnectedAsync(exception);
 		}
 
-		// Optional: Keep this method if you want to invoke it directly from clients
+	 
 		public async Task SendMessage(Guid senderId, Guid receiverId, string content)
 		{
 			await Clients.Group(receiverId.ToString()).SendAsync("ReceiveMessage", new
 			{
 				SenderId = senderId,
 				Content = content,
-				SentAt = DateTime.UtcNow
+				SentAt = DateTime.UtcNow,
+			
+			});
+		}
+		public async Task DeleteMessage(Guid messageId)
+		{
+			 
+			await Clients.All.SendAsync("MessageDeleted", new
+			{
+				messageId = messageId.ToString()
 			});
 		}
 	}

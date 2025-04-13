@@ -1,28 +1,28 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/FacebookClone/signalr-client.elji2nl7l0.html">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\signalr-client.html'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"elji2nl7l0"},{"Name":"integrity","Value":"sha256-Tr7lzX2t9bTgA7nKtdTxJV3I4iG1Kx3phSpRvaQcwC8="},{"Name":"label","Value":"_content/FacebookClone/signalr-client.html"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2975"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022Tr7lzX2t9bTgA7nKtdTxJV3I4iG1Kx3phSpRvaQcwC8=\u0022"},{"Name":"Last-Modified","Value":"Fri, 11 Apr 2025 15:38:00 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/FacebookClone/signalr-client.html">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\signalr-client.html'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq\u002Bq4uXiqBE="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"865"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq\u002Bq4uXiqBE=\u0022"},{"Name":"Last-Modified","Value":"Sun, 06 Apr 2025 19:46:25 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Tr7lzX2t9bTgA7nKtdTxJV3I4iG1Kx3phSpRvaQcwC8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2975"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022Tr7lzX2t9bTgA7nKtdTxJV3I4iG1Kx3phSpRvaQcwC8=\u0022"},{"Name":"Last-Modified","Value":"Fri, 11 Apr 2025 15:38:00 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/FacebookClone/signalr-client.m0nm3g807b.html">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\signalr-client.html'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/FacebookClone/test-chat.ahy0e716w3.html">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\test-chat.html'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"m0nm3g807b"},{"Name":"integrity","Value":"sha256-BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq\u002Bq4uXiqBE="},{"Name":"label","Value":"_content/FacebookClone/signalr-client.html"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"865"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq\u002Bq4uXiqBE=\u0022"},{"Name":"Last-Modified","Value":"Sun, 06 Apr 2025 19:46:25 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ahy0e716w3"},{"Name":"integrity","Value":"sha256-jogSntJqzg1NCUVurLd8w/tfAkLfMktEZOckyK1/lBw="},{"Name":"label","Value":"_content/FacebookClone/test-chat.html"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6077"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022jogSntJqzg1NCUVurLd8w/tfAkLfMktEZOckyK1/lBw=\u0022"},{"Name":"Last-Modified","Value":"Sun, 13 Apr 2025 14:24:43 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/FacebookClone/test-chat.html">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\test-chat.html'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-mzmLa7PhmsZfnZoivQc3i\u002BPZaLksPGJd6asShJWfGsM="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4514"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022mzmLa7PhmsZfnZoivQc3i\u002BPZaLksPGJd6asShJWfGsM=\u0022"},{"Name":"Last-Modified","Value":"Wed, 09 Apr 2025 14:29:18 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/FacebookClone/test-chat.j63q3p0jj8.html">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\test-chat.html'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"j63q3p0jj8"},{"Name":"integrity","Value":"sha256-mzmLa7PhmsZfnZoivQc3i\u002BPZaLksPGJd6asShJWfGsM="},{"Name":"label","Value":"_content/FacebookClone/test-chat.html"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4514"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022mzmLa7PhmsZfnZoivQc3i\u002BPZaLksPGJd6asShJWfGsM=\u0022"},{"Name":"Last-Modified","Value":"Wed, 09 Apr 2025 14:29:18 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-jogSntJqzg1NCUVurLd8w/tfAkLfMktEZOckyK1/lBw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"6077"},{"Name":"Content-Type","Value":"text/html"},{"Name":"ETag","Value":"\u0022jogSntJqzg1NCUVurLd8w/tfAkLfMktEZOckyK1/lBw=\u0022"},{"Name":"Last-Modified","Value":"Sun, 13 Apr 2025 14:24:43 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
   </ItemGroup>
 </Project>

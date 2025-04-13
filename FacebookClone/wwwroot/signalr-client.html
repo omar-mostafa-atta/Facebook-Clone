@@ -1,27 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SignalR Test</title>
+    <title>Real-time Posts</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+    <style>
+        /* Optional: Basic styling for better visuals */
+        #posts {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .post-item {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+            .post-item:last-child {
+                border-bottom: none;
+            }
+    </style>
 </head>
 <body>
     <h2>Real-time Posts:</h2>
     <ul id="posts"></ul>
 
     <script>
+        // Initialize SignalR connection
         const connection = new signalR.HubConnectionBuilder()
-            .withUrl("https://localhost:7281/postHub")  
+            .withUrl("https://localhost:7281/postHub") // Ensure this matches your server's URL
+            .withAutomaticReconnect() // Enable auto-reconnect for better reliability
             .build();
 
-        connection.on("ReceivePost", function(post) {
-            const li = document.createElement("li");
-            li.innerText = `Post: ${post.text} (ID: ${post.id})`;
-            document.getElementById("posts").appendChild(li);
+        // Handle new posts
+        connection.on("ReceivePost", function (post) {
+            addPostToUI(post);
         });
 
+        // Handle updated posts
+        connection.on("ReceiveUpdatedPost", function (post) {
+            updatePostInUI(post);
+        });
+
+        // Handle deleted posts
+        connection.on("ReceiveDeletedPost", function (postId) {
+            removePostFromUI(postId);
+        });
+
+        // Function to add a new post to the UI
+        function addPostToUI(post) {
+            const li = document.createElement("li");
+            li.id = `post-${post.id}`; // Set a unique ID for easy updates/removal
+            li.className = "post-item";
+            li.innerText = `Post: ${post.text} (ID: ${post.id})`;
+            document.getElementById("posts").appendChild(li);
+        }
+
+        // Function to update an existing post in the UI
+        function updatePostInUI(post) {
+            const postElement = document.getElementById(`post-${post.id}`);
+            if (postElement) {
+                postElement.innerText = `Post: ${post.text} (ID: ${post.id})`;
+            } else {
+                // If the post isn't in the UI yet, add it (optional fallback)
+                addPostToUI(post);
+            }
+        }
+
+        // Function to remove a post from the UI
+        function removePostFromUI(postId) {
+            const postElement = document.getElementById(`post-${postId}`);
+            if (postElement) {
+                postElement.remove();
+            }
+        }
+
+        // Start the connection
         connection.start()
             .then(() => console.log("✅ Connected to SignalR"))
             .catch(err => console.error("❌ Connection failed: ", err));
+
+        // Optional: Handle reconnection events
+        connection.onreconnecting(() => console.log("🔄 Reconnecting to SignalR..."));
+        connection.onreconnected(() => console.log("✅ Reconnected to SignalR"));
     </script>
 </body>
 </html>

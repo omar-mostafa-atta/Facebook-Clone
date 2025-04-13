@@ -9,6 +9,6 @@ namespace FacebookClone.Core.IRepository
 		Task Create(AddCommentDTO addCommentDTO, AppUser user);
 		Task Delete(string CommentId,AppUser user);
 		Task Update(UpdateCommentDTO updateCommentDTO, AppUser user);
-		Task<List<Comment>> GetPostComments(string postId);
+		Task<List<Comment>> GetPostComments(string postId, int pageNumber = 1, int pageSize = 10);
 	}
 }

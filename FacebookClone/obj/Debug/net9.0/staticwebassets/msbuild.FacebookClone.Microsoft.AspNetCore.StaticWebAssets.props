@@ -12,8 +12,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>m0nm3g807b</Fingerprint>
-      <Integrity>BsHCZgqT04VPPolkQ7mWc6sDk7HM2ANJyq+q4uXiqBE=</Integrity>
+      <Fingerprint>elji2nl7l0</Fingerprint>
+      <Integrity>Tr7lzX2t9bTgA7nKtdTxJV3I4iG1Kx3phSpRvaQcwC8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\signalr-client.html'))</OriginalItemSpec>
@@ -30,8 +30,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>j63q3p0jj8</Fingerprint>
-      <Integrity>mzmLa7PhmsZfnZoivQc3i+PZaLksPGJd6asShJWfGsM=</Integrity>
+      <Fingerprint>ahy0e716w3</Fingerprint>
+      <Integrity>jogSntJqzg1NCUVurLd8w/tfAkLfMktEZOckyK1/lBw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\test-chat.html'))</OriginalItemSpec>

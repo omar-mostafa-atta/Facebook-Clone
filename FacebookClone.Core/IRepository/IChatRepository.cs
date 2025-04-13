@@ -10,5 +10,6 @@ namespace FacebookClone.Core.IRepository
 	public interface IChatRepository
 	{
 		Task<Message> SaveMessageAsync(string senderId, string receiverId, string content);
+		Task DeleteMessageAsync(Guid messageId, Guid currentUserId);
 	}
 }

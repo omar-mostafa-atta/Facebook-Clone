@@ -95,21 +95,26 @@ namespace FacebookClone.EF.Repository
 			await _commentgenericRepository.SaveChangesAsync();
 		}
 
-		public async Task<List<Comment>> GetPostComments(string postId)
+		public async Task<List<Comment>> GetPostComments(string postId, int pageNumber = 1, int pageSize = 10)
 		{
 			if (!Guid.TryParse(postId, out var postid))
 			{
 				throw new ArgumentException("Wrong Guid format");
 			}
-			var post=await _postgenericRepository.GetByIdAsync(postid);
-			
+
+			var post = await _postgenericRepository.GetByIdAsync(postid);
+
 			if (post == null)
 				throw new KeyNotFoundException("Post not found");
 
-			var postComments = post.Comments.ToList();
+			var postComments = post.Comments
+				.OrderByDescending(c => c.CreatedAt)
+				.Skip((pageNumber - 1) * pageSize)  
+				.Take(pageSize)
+				.ToList();
 
 			return postComments;
-
 		}
+
 	}
 }

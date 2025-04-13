@@ -22,13 +22,13 @@ namespace FacebookClone.Controllers
 
 		[HttpPost("AddReaction")]
 		[Authorize]
-		public async Task<IActionResult> AddReaction(AddReactionDTO addReactionDTO)
+		public async Task<IActionResult> AddReaction([FromBody] AddReactionDTO addReactionDTO)
 		{
 			return await HandleRequest(async () =>
 			{
 				var user = await _userManager.GetUserAsync(User);
 				if (user == null)
-					throw new UnauthorizedAccessException("User not authenticated.");
+					throw new KeyNotFoundException("User not found");
 
 				await _reactionRepository.AddReaction(addReactionDTO, user);
 				return Ok("Reaction is Added");
@@ -43,15 +43,15 @@ namespace FacebookClone.Controllers
 			{
 				var user = await _userManager.GetUserAsync(User);
 				if (user == null)
-					throw new UnauthorizedAccessException("User not authenticated.");
+					throw new KeyNotFoundException("User not found");
 
 				await _reactionRepository.RemoveReaction(removeReactionDTO.PostId, user);
 				return Ok("Reaction is Removed");
 			});
 		}
 
-		[HttpGet("GetPostReactions")]
-		public async Task<IActionResult> GetReaction([FromQuery] string postId)
+		[HttpGet("GetReactions/{postId}")]
+		public async Task<IActionResult> GetReaction(string postId,[FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
 		{
 			return await HandleRequest(async () =>
 			{
@@ -60,14 +60,14 @@ namespace FacebookClone.Controllers
 					throw new ArgumentException("Invalid Post ID format.");
 				}
 
-				var reactions = await _reactionRepository.GetReaction(postId);
+				var reactions = await _reactionRepository.GetReaction(postId, pageNumber, pageSize);
 				return Ok(reactions);
 			});
 		}
 
-		[HttpGet("GetReactionCounts")]
+		[HttpGet("GetReactionCounts/{postId}")]
 		[Authorize]
-		public async Task<IActionResult> GetReactionCounts([FromQuery] string postId)
+		public async Task<IActionResult> GetReactionCounts(string postId)
 		{
 			return await HandleRequest(async () =>
 			{

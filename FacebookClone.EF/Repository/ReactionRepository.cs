@@ -35,20 +35,25 @@ namespace FacebookClone.EF.Repository
 			return await _context.Reactions.AsNoTracking().Where(r => r.PostId == Guid.Parse(postId)).ToListAsync();
 		}
 
-		public async Task<List<GetReactionsDTO>> GetReaction(string postId)
+		public async Task<List<GetReactionsDTO>> GetReaction(string postId, int pageNumber = 1, int pageSize = 10)
 		{
 			if (!Guid.TryParse(postId, out var parsedPostId))
 			{
 				throw new ArgumentException("Invalid GUID format for Post ID.");
 			}
 
-			var Post=await _postgenericRepository.GetByIdAsync(parsedPostId);
-			if (Post == null)
+			var post = await _postgenericRepository.GetByIdAsync(parsedPostId);
+			if (post == null)
 				throw new KeyNotFoundException("No Post for this Id");
 
 			var reactions = await GetReactionsByPostId(postId);
 
-			var reactionDtos = reactions.Select(r => new GetReactionsDTO
+			var pagedReactions = reactions
+				.Skip((pageNumber - 1) * pageSize)
+				.Take(pageSize)
+				.ToList();
+
+			var reactionDtos = pagedReactions.Select(r => new GetReactionsDTO
 			{
 				reactionType = r.ReactionType,
 				userId = r.AppUserId

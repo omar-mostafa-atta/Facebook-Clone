@@ -46,11 +46,46 @@ public class ChatRepository : IChatRepository
 			senderId,
 			content,
 			timestamp = message.SentAt
+			 
 		});
 
 		return message;
 	}
+	public async Task DeleteMessageAsync(Guid messageId,Guid currentUserId)
+	{
+		var message = await _context.Message
+			.Include(m => m.Chat)
+			.FirstOrDefaultAsync(m => m.Id == messageId);
 
+		if (message == null)
+		{
+			throw new ArgumentException("Message not found");
+		}
+
+		if (message.SenderId != currentUserId)
+		{
+			throw new UnauthorizedAccessException("You can only delete your own messages");
+		}
+
+		_context.Message.Remove(message);
+		await _context.SaveChangesAsync();
+
+		 
+		var senderId = message.SenderId.ToString();
+		var receiverId = message.Chat.ReceiverId == message.SenderId
+			? message.Chat.SenderId.ToString()
+			: message.Chat.ReceiverId.ToString();
+
+		await _hubContext.Clients.Group(senderId).SendAsync("MessageDeleted", new
+		{
+			messageId = messageId.ToString()
+		});
+
+		await _hubContext.Clients.Group(receiverId).SendAsync("MessageDeleted", new
+		{
+			messageId = messageId.ToString()
+		});
+	}
 	private async Task<Chat> GetOrCreateChatAsync(Guid senderId, Guid receiverId)
 	{
 		var existingChat = await _context.Chat

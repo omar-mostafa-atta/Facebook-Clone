@@ -19,6 +19,10 @@ namespace FacebookClone.EF.Repository
 			_context = context;
 			_dbSet=_context.Set<T>();
 		}
+		public IQueryable<T> AsQueryable()
+		{
+			return _dbSet.AsQueryable();
+		}
 		public async Task AddAsync(T entity)
 		{
 			await _dbSet.AddAsync(entity);

@@ -99,45 +99,24 @@ namespace FacebookClone.Controllers
 		}
 
 		[HttpGet("GetUserPosts/{id}")]
-		public async Task<ActionResult<List<PostDTO>>> GetUserPosts(string id)
+		public async Task<ActionResult<List<PostDTO>>> GetUserPosts(
+		string id,
+		[FromQuery] int pageNumber = 1,
+		[FromQuery] int pageSize = 10,
+		[FromQuery] string sortBy = "CreatedAt",
+		[FromQuery] string sortDirection = "desc")
 		{
 			return await HandleRequest<List<PostDTO>>(async () =>
 			{
-				if (!Guid.TryParse(id, out var guidId))
-				{
-					throw new ArgumentException("Invalid GUID format for User ID.");
-				}
-
-				var posts = await _postrepository.FindAsync(p => p.AppUserId == guidId);
-
-				if (posts == null || !posts.Any())
-					throw new KeyNotFoundException("This user has no posts.");
-
-				var postDtos = posts.Select(post => new PostDTO
-				{
-					Id = post.Id,
-					Text = post.Text,
-					CreatedAt = post.CreatedAt,
-					UpdatedAt = post.UpdatedAt,
-					TotalReactions = post.TotalReactions,
-					AppUserId = post.AppUserId,
-					Media = post.Media.Select(media => new MediaDto
-					{
-						Id = media.Id,
-						Type = media.Type,
-						Url = media.Url,
-						PublicId = media.PublicId,
-						PostId = media.PostId
-					}).ToList()
-				}).ToList();
-
-				return Ok(postDtos);
+				var posts = await _postService.GetUserPosts(id, pageNumber, pageSize, sortBy, sortDirection);
+				return Ok(posts);
 			});
 		}
 
+
 		[HttpPost("Create")]
 		[Authorize]
-		public async Task<ActionResult<PostDTO>> Create( CreateAndUpdatePostDTO createPostDto)
+		public async Task<ActionResult<PostDTO>> Create(CreateAndUpdatePostDTO createPostDto)
 		{
 			return await HandleRequest<PostDTO>(async () =>
 			{
@@ -154,7 +133,7 @@ namespace FacebookClone.Controllers
 
 		[HttpPut("Update/{id}")]
 		[Authorize]
-		public async Task<IActionResult> Update(string id, [FromForm] CreateAndUpdatePostDTO updatePostDto)
+		public async Task<IActionResult> Update(string id, [FromBody] CreateAndUpdatePostDTO updatePostDto)
 		{
 			return await HandleRequest(async () =>
 			{
@@ -213,7 +192,7 @@ namespace FacebookClone.Controllers
 
 		[HttpDelete("Delete/{PostId}")]
 		[Authorize]
-		public async Task<IActionResult> Delete([FromQuery] string PostId)
+		public async Task<IActionResult> Delete(string PostId)
 		{
 			return await HandleRequest(async () =>
 			{

@@ -2,7 +2,7 @@
   {
     "ContainingType": "FacebookClone.Controllers.AuthenticationController",
     "Method": "DeleteUser",
-    "RelativePath": "api/Authentication",
+    "RelativePath": "api/Authentication/Delete/{userId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -10,7 +10,7 @@
       {
         "Name": "userId",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -18,15 +18,15 @@
   {
     "ContainingType": "FacebookClone.Controllers.AuthenticationController",
     "Method": "ForgotPassword",
-    "RelativePath": "api/Authentication/ForgotPassword",
+    "RelativePath": "api/Authentication/ForgotPassword/{email}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "emailFromRequest",
+        "Name": "email",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -97,6 +97,22 @@
   },
   {
     "ContainingType": "FacebookClone.Controllers.ChatController",
+    "Method": "DeleteMessage",
+    "RelativePath": "api/Chat/delete/{messageId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "messageId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.ChatController",
     "Method": "SendMessage",
     "RelativePath": "api/Chat/send",
     "HttpMethod": "POST",
@@ -130,7 +146,7 @@
   {
     "ContainingType": "FacebookClone.Controllers.CommentController",
     "Method": "Delete",
-    "RelativePath": "api/Comment/Delete",
+    "RelativePath": "api/Comment/Delete/{commentId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -138,7 +154,7 @@
       {
         "Name": "commentId",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -168,9 +184,19 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "postid",
+        "Name": "postId",
         "Type": "System.String",
         "IsRequired": true
+      },
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -188,7 +214,7 @@
   {
     "ContainingType": "FacebookClone.API.Controllers.FriendshipController",
     "Method": "RemoveFriendRequest",
-    "RelativePath": "api/Friendship/remove-request/{friendshipId}",
+    "RelativePath": "api/Friendship/RemoveRequest/{friendshipId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -259,11 +285,6 @@
       {
         "Name": "PostId",
         "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "PostId",
-        "Type": "",
         "IsRequired": true
       }
     ],
@@ -327,6 +348,26 @@
         "Name": "id",
         "Type": "System.String",
         "IsRequired": true
+      },
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortDirection",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -387,14 +428,9 @@
         "IsRequired": true
       },
       {
-        "Name": "Text",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "MediaFiles",
-        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
-        "IsRequired": false
+        "Name": "updatePostDto",
+        "Type": "FacebookClone.Core.DTO.CreateAndUpdatePostDTO",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -417,8 +453,8 @@
   },
   {
     "ContainingType": "FacebookClone.Controllers.ReactionController",
-    "Method": "GetReaction",
-    "RelativePath": "api/Reaction/GetPostReactions",
+    "Method": "GetReactionCounts",
+    "RelativePath": "api/Reaction/GetReactionCounts/{postId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -426,15 +462,15 @@
       {
         "Name": "postId",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "FacebookClone.Controllers.ReactionController",
-    "Method": "GetReactionCounts",
-    "RelativePath": "api/Reaction/GetReactionCounts",
+    "Method": "GetReaction",
+    "RelativePath": "api/Reaction/GetReactions/{postId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -442,6 +478,16 @@
       {
         "Name": "postId",
         "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],

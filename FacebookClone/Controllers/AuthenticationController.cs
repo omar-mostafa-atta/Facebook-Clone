@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authorization;
+using Newtonsoft.Json.Linq;
 
 namespace FacebookClone.Controllers
 {
@@ -16,14 +17,10 @@ namespace FacebookClone.Controllers
 	public class AuthenticationController : BaseController
 	{
 		private readonly Core.IRepository.IAuthenticationService _auth;
-		private readonly UserManager<AppUser> _userManager;
-		private readonly SignInManager<AppUser> _signInManager;
-		public AuthenticationController(Core.IRepository.IAuthenticationService auth, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+	
+		public AuthenticationController(Core.IRepository.IAuthenticationService auth)
 		{
 			_auth = auth;
-
-			_userManager = userManager;
-			_signInManager = signInManager;
 		}
 
 
@@ -31,9 +28,6 @@ namespace FacebookClone.Controllers
 		[HttpPost("SignUp")]
 		public async Task<IActionResult> SignUp(RegisterDTO registerFromRequest)
 		{
-			if (registerFromRequest == null)
-				return BadRequest();
-
 			var otp = await _auth.SendOTPAsync(registerFromRequest.Email);
 
 			var emailToken = await _auth.EmailOnlyToken(registerFromRequest.Email);
@@ -46,12 +40,9 @@ namespace FacebookClone.Controllers
 		[HttpPost("ValidateOtp")]
 		public async Task<IActionResult> ValidateOtp(SignUpResponseDto signUpResponseDto)
 		{
-			if (signUpResponseDto == null)
-				return BadRequest();
-
 			var result = await _auth.VerifyOTP(signUpResponseDto);
 			if (result == false)
-				return BadRequest("OTP Is Wrong");
+				return BadRequest("Invalid OTP");
 
 			return Ok("OTP is correct");
 
@@ -62,38 +53,50 @@ namespace FacebookClone.Controllers
 		public async Task<IActionResult> Login(LoginDTO loginFromRequest)
 		{
 			if (loginFromRequest == null)
-				return BadRequest();
+				return BadRequest("Invalid login request");
 
+			var result = await _auth.LoginAsync(loginFromRequest);
+			if (result == "Wrong Username Or password" || result == "Incomplete OTP process")
+				return Unauthorized(result);
 
-			var reult = await _auth.LoginAsync(loginFromRequest);
-			return Ok(new { reult });
+			// Store the JWT token in a cookie
+			Response.Cookies.Append("jwt", result, new CookieOptions
+			{
+				HttpOnly = true, 
+				Secure = true,   // 34an HTTPS
+				SameSite = SameSiteMode.Strict,
+				Expires = DateTimeOffset.UtcNow.AddHours(2), 
+				Path = "/"       // bt5li el cookie available lkol el paths
+			});
 
+			
+			return Ok(new { message = "Login successful" });
 		}
 
 
-		[HttpGet("ForgotPassword")]
-		public async Task<IActionResult> ForgotPassword(string emailFromRequest)
+		[HttpGet("ForgotPassword/{email}")]
+		public async Task<IActionResult> ForgotPassword(string email)
 		{
 
-			var result = _auth.ForgotPasswordAsync(emailFromRequest);
+			var result = await _auth.ForgotPasswordAsync(email);
 
 			return Ok(result);
 
 		}
 
 		[HttpPatch("ResetPassword")]
-		public async Task<IActionResult> ResetPassword(ResetPasswordDTO resetPasswordDTO)
+		public async Task<IActionResult> ResetPassword([FromBody]ResetPasswordDTO resetPasswordDTO)
 		{
 			if (resetPasswordDTO == null)
 				return BadRequest();
 
-			var result = _auth.ResetPasswordAsync(resetPasswordDTO);
+			var result =await _auth.ResetPasswordAsync(resetPasswordDTO);
 
 			return Ok(result);
 
 		}
 
-		[HttpDelete]
+		[HttpDelete("Delete/{userId}")]
 		[Authorize(Roles = "Admin")]
 		public async Task<IActionResult> DeleteUser(string userId)
 		{
@@ -108,7 +111,7 @@ namespace FacebookClone.Controllers
 			}
 			catch (Exception ex)
 			{
-				return Forbid("Adminn cannot Delete him self");
+				return Forbid(ex.Message);
 			}
 		}
 	}

@@ -14,7 +14,7 @@ namespace FacebookClone.Core.IRepository
 		Task<List<Reactions>> GetReactionsByPostId(string postId);
 		Task AddReaction(AddReactionDTO addReactionDTO, AppUser user);
 		Task RemoveReaction(string PostId, AppUser user);
-		Task<List<GetReactionsDTO>> GetReaction(string postId);
+		Task<List<GetReactionsDTO>> GetReaction(string postId, int pageNumber = 1, int pageSize = 10);
 		Task<ReactionCountDTO> GetReactionCountByPostId(string postId);
 
 	}
