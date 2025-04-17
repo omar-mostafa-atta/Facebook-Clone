@@ -400,6 +400,32 @@
   },
   {
     "ContainingType": "FacebookClone.Controllers.PostController",
+    "Method": "SharePost",
+    "RelativePath": "api/Post/share",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "OriginalPostId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Text",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MediaFiles",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FacebookClone.Controllers.PostController",
     "Method": "UnsavePost",
     "RelativePath": "api/Post/UnsavePost",
     "HttpMethod": "POST",

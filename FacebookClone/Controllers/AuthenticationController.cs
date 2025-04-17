@@ -59,7 +59,7 @@ namespace FacebookClone.Controllers
 			if (result == "Wrong Username Or password" || result == "Incomplete OTP process")
 				return Unauthorized(result);
 
-			// Store the JWT token in a cookie
+			
 			Response.Cookies.Append("jwt", result, new CookieOptions
 			{
 				HttpOnly = true, 

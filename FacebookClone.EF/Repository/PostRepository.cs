@@ -271,6 +271,92 @@ namespace FacebookClone.Core.Services
 			await _savedPostsRepository.SaveChangesAsync();
 		}
 
+
+		public async Task<PostDTO> SharePostAsync(SharePostDTO sharePostDto, Guid userId)
+		{
+			if (!Guid.TryParse(sharePostDto.OriginalPostId, out var postid))
+			{
+				throw new ArgumentException("Invalid GUID format for Post ID.");
+			}
+
+			var originalPost = await _postRepository.GetByIdAsync(postid);
+			if (originalPost == null)
+			{
+				throw new KeyNotFoundException("Original post not found.");
+			}
+
+			// Create a new post for the share
+			var sharedPost = new Post
+			{
+				Text = sharePostDto.Text,
+				CreatedAt = DateTime.UtcNow,
+				UpdatedAt = DateTime.UtcNow,
+				AppUserId = userId,
+				SharedPostId = postid,
+				TotalShares = 0 // Initialize shares for the new post
+			};
+
+			// Handle media uploads if provided
+			if (sharePostDto.MediaFiles != null && sharePostDto.MediaFiles.Count > 0)
+			{
+				foreach (var file in sharePostDto.MediaFiles)
+				{
+					if (file.Length > 0)
+					{
+						var media = await _mediaService.UploadMediaAsync(file, sharedPost.Id);
+						sharedPost.Media.Add(media);
+					}
+				}
+			}
+
+			
+			originalPost.TotalShares += 1;
+			await _postRepository.Update(originalPost);
+
+			
+			await _postRepository.AddAsync(sharedPost);
+			await _postRepository.SaveChangesAsync();
+
+			 
+			var postDto = new PostDTO
+			{
+				Id = sharedPost.Id,
+				Text = sharedPost.Text,
+				CreatedAt = sharedPost.CreatedAt,
+				UpdatedAt = sharedPost.UpdatedAt,
+				TotalReactions = sharedPost.TotalReactions,
+				TotalComments = sharedPost.TotalComments,
+				TotalShares = sharedPost.TotalShares,
+				AppUserId = sharedPost.AppUserId,
+				SharedPostId = postid,
+				Media = sharedPost.Media.Select(m => new MediaDto
+				{
+					Id = m.Id,
+					Type = m.Type,
+					Url = m.Url,
+					PublicId = m.PublicId,
+					PostId = m.PostId
+				}).ToList(),
+				SharedPost = new PostDTO  
+				{
+					Id = originalPost.Id,
+					Text = originalPost.Text,
+					AppUserId = originalPost.AppUserId,
+					CreatedAt = originalPost.CreatedAt,
+					UpdatedAt = originalPost.UpdatedAt,
+					TotalReactions = originalPost.TotalReactions,
+					TotalComments = originalPost.TotalComments,
+					TotalShares = originalPost.TotalShares
+					  
+				}
+			};
+
+		
+			await _hubContext.Clients.All.SendAsync("ReceiveSharedPost", postDto);
+
+			return postDto;
+		}
+
 		public async Task DeletetAsync(Guid postId, Guid userId)
 		{
 			var post = await _postRepository.GetByIdAsync(postId);

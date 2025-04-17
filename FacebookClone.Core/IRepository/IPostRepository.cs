@@ -11,6 +11,7 @@ namespace FacebookClone.Core.IRepository
 		Task SavePostAsync(Guid postId, Guid userId);
 		Task UnsavePostAsync(Guid postId, Guid userId);
 		Task DeletetAsync(Guid postId, Guid userId);
-	 
+		Task<PostDTO> SharePostAsync(SharePostDTO sharePostDto, Guid userId);
+
 	}
 }

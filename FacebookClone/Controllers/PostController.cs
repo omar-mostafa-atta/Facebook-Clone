@@ -1,6 +1,7 @@
 ﻿using FacebookClone.Core.DTO;
 using FacebookClone.Core.IRepository;
 using FacebookClone.Core.Models;
+using FacebookClone.Core.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -96,6 +97,16 @@ namespace FacebookClone.Controllers
 
 				return Ok(postDto);
 			});
+		}
+		
+		[HttpPost("share")]
+		[Authorize]
+		public async Task<IActionResult> SharePost([FromForm] SharePostDTO sharePostDto)
+		{
+			var userId = Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+			 
+			var postDto = await _postService.SharePostAsync(sharePostDto, userId);
+			return Ok(postDto);
 		}
 
 		[HttpGet("GetUserPosts/{id}")]
