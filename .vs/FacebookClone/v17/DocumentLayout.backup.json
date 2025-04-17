@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "F:\\omarapi\\FacebookClone\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BADC81CB-1504-455F-BA9F-883095F9BF11}|FacebookClone.Core\\FacebookClone.Core.csproj|f:\\omarapi\\facebookclone\\facebookclone.core\\dto\\sharepostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BADC81CB-1504-455F-BA9F-883095F9BF11}|FacebookClone.Core\\FacebookClone.Core.csproj|solutionrelative:facebookclone.core\\dto\\sharepostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BADC81CB-1504-455F-BA9F-883095F9BF11}|FacebookClone.Core\\FacebookClone.Core.csproj|f:\\omarapi\\facebookclone\\facebookclone.core\\models\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BADC81CB-1504-455F-BA9F-883095F9BF11}|FacebookClone.Core\\FacebookClone.Core.csproj|solutionrelative:facebookclone.core\\models\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BADC81CB-1504-455F-BA9F-883095F9BF11}|FacebookClone.Core\\FacebookClone.Core.csproj|f:\\omarapi\\facebookclone\\facebookclone.core\\irepository\\ipostrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BADC81CB-1504-455F-BA9F-883095F9BF11}|FacebookClone.Core\\FacebookClone.Core.csproj|solutionrelative:facebookclone.core\\irepository\\ipostrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BADC81CB-1504-455F-BA9F-883095F9BF11}|FacebookClone.Core\\FacebookClone.Core.csproj|f:\\omarapi\\facebookclone\\facebookclone.core\\dto\\sharepostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BADC81CB-1504-455F-BA9F-883095F9BF11}|FacebookClone.Core\\FacebookClone.Core.csproj|solutionrelative:facebookclone.core\\dto\\sharepostdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9A186BF5-16F1-4E86-9658-BDA92C3AC94A}|FacebookClone\\FacebookClone.csproj|f:\\omarapi\\facebookclone\\facebookclone\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 83,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -82,7 +82,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "IPostRepository.cs",
               "DocumentMoniker": "F:\\omarapi\\FacebookClone\\FacebookClone.Core\\IRepository\\IPostRepository.cs",
               "RelativeDocumentMoniker": "FacebookClone.Core\\IRepository\\IPostRepository.cs",
@@ -95,13 +95,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "SharePostDTO.cs",
               "DocumentMoniker": "F:\\omarapi\\FacebookClone\\FacebookClone.Core\\DTO\\SharePostDTO.cs",
               "RelativeDocumentMoniker": "FacebookClone.Core\\DTO\\SharePostDTO.cs",
               "ToolTip": "F:\\omarapi\\FacebookClone\\FacebookClone.Core\\DTO\\SharePostDTO.cs",
               "RelativeToolTip": "FacebookClone.Core\\DTO\\SharePostDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-17T11:54:47.764Z",
               "EditorCaption": ""
@@ -134,12 +134,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Post.cs",
               "DocumentMoniker": "F:\\omarapi\\FacebookClone\\FacebookClone.Core\\Models\\Post.cs",
               "RelativeDocumentMoniker": "FacebookClone.Core\\Models\\Post.cs",
-              "ToolTip": "F:\\omarapi\\FacebookClone\\FacebookClone.Core\\Models\\Post.cs*",
-              "RelativeToolTip": "FacebookClone.Core\\Models\\Post.cs*",
+              "ToolTip": "F:\\omarapi\\FacebookClone\\FacebookClone.Core\\Models\\Post.cs",
+              "RelativeToolTip": "FacebookClone.Core\\Models\\Post.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAkwAsAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-17T11:31:03.004Z",

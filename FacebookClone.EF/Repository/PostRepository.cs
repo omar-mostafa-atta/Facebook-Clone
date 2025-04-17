@@ -285,7 +285,7 @@ namespace FacebookClone.Core.Services
 				throw new KeyNotFoundException("Original post not found.");
 			}
 
-			// Create a new post for the share
+			
 			var sharedPost = new Post
 			{
 				Text = sharePostDto.Text,
@@ -293,22 +293,10 @@ namespace FacebookClone.Core.Services
 				UpdatedAt = DateTime.UtcNow,
 				AppUserId = userId,
 				SharedPostId = postid,
-				TotalShares = 0 // Initialize shares for the new post
+				TotalShares = 0  
 			};
 
-			// Handle media uploads if provided
-			if (sharePostDto.MediaFiles != null && sharePostDto.MediaFiles.Count > 0)
-			{
-				foreach (var file in sharePostDto.MediaFiles)
-				{
-					if (file.Length > 0)
-					{
-						var media = await _mediaService.UploadMediaAsync(file, sharedPost.Id);
-						sharedPost.Media.Add(media);
-					}
-				}
-			}
-
+			 
 			
 			originalPost.TotalShares += 1;
 			await _postRepository.Update(originalPost);
@@ -329,14 +317,6 @@ namespace FacebookClone.Core.Services
 				TotalShares = sharedPost.TotalShares,
 				AppUserId = sharedPost.AppUserId,
 				SharedPostId = postid,
-				Media = sharedPost.Media.Select(m => new MediaDto
-				{
-					Id = m.Id,
-					Type = m.Type,
-					Url = m.Url,
-					PublicId = m.PublicId,
-					PostId = m.PostId
-				}).ToList(),
 				SharedPost = new PostDTO  
 				{
 					Id = originalPost.Id,

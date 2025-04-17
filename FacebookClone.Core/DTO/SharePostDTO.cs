@@ -11,6 +11,6 @@ namespace FacebookClone.Core.DTO
 	{
 		public string OriginalPostId { get; set; }
 		public string? Text { get; set; }
-		public List<IFormFile>? MediaFiles { get; set; } 
+		 
 	}
 }
