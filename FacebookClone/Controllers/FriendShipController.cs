@@ -1,8 +1,7 @@
 ﻿using FacebookClone.Controllers;
 using FacebookClone.Core.DTO;
 using FacebookClone.Core.IRepository;
-using FacebookClone.Core.Models;
-using FacebookClone.Core.Services;
+ 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -21,7 +20,8 @@ namespace FacebookClone.API.Controllers
 			_friendshipService = friendshipService;
 		}
 
-		[HttpPost("send-request")]
+		[HttpPost("sendRequest")]
+		[Authorize]
 		public async Task<IActionResult> SendFriendRequest([FromBody] FriendRequestDTO request)
 		{
 			return await HandleRequest(async () =>
@@ -38,7 +38,8 @@ namespace FacebookClone.API.Controllers
 			});
 		}
 
-		[HttpGet("pending-requests")]
+		[HttpGet("pendingRequests")]
+		[Authorize]
 		public async Task<IActionResult> GetPendingRequests()
 		{
 			return await HandleRequest(async () =>
@@ -57,6 +58,7 @@ namespace FacebookClone.API.Controllers
 		}
 
 		[HttpDelete("RemoveRequest/{friendshipId}")]
+		[Authorize]
 		public async Task<IActionResult> RemoveFriendRequest(string friendshipId)
 		{
 			return await HandleRequest(async () =>

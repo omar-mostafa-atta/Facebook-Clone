@@ -4,7 +4,7 @@ using FacebookClone.Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.Design;
+ 
 using System.Security.Claims;
 
 namespace FacebookClone.Controllers
@@ -68,9 +68,9 @@ namespace FacebookClone.Controllers
 			});
 		}
 
-		[HttpGet("GetPostComments/{postid}")]
+		[HttpGet("GetPostComments/{postId}")]
 		[Authorize]
-		public async Task<IActionResult> GetPostComments(string postId, [FromQuery]int pageNumber = 1, [FromQuery] int pageSize = 10)
+		public async Task<IActionResult> GetPostComments([FromRoute] string postId, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
 		{
 			return await HandleRequest(async () =>
 			{

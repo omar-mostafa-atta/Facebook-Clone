@@ -1,4 +1,4 @@
-F:\omarapi\FacebookClone\FacebookClone\wwwroot\test-chat.html
-F:\omarapi\FacebookClone\FacebookClone\wwwroot\signalr-client.html
+F:\omarapi\FacebookCloneGithub\FacebookClone\Facebook-Clone\FacebookClone\wwwroot\test-chat.html
+F:\omarapi\FacebookCloneGithub\FacebookClone\Facebook-Clone\FacebookClone\wwwroot\signalr-client.html
 wwwroot\signalr-client.html
 wwwroot\test-chat.html

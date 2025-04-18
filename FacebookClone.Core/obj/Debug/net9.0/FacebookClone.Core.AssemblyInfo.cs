@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FacebookClone.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ce835f7f3cbdc3723b232bcaea078154972238a2")]
 [assembly: System.Reflection.AssemblyProductAttribute("FacebookClone.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FacebookClone.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

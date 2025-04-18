@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bbGBtaWweFQ=",
+  "dgSpecHash": "n0QIcKNZTIs=",
   "success": true,
-  "projectFilePath": "F:\\omarapi\\FacebookClone\\FacebookClone.Core\\FacebookClone.Core.csproj",
+  "projectFilePath": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone.Core\\FacebookClone.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\omar\\.nuget\\packages\\bouncycastle.cryptography\\2.5.0\\bouncycastle.cryptography.2.5.0.nupkg.sha512",
     "C:\\Users\\omar\\.nuget\\packages\\cloudinarydotnet\\1.27.4\\cloudinarydotnet.1.27.4.nupkg.sha512",

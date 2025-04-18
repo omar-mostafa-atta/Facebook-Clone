@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ReYsZw7yj7vWuGNxbMybXSbmNdYCKL6IczR0lv6m+00=",
+  "Hash": "6g7NMdBb9AaZjFRkYY19aPf6fNxWKNi/UCJ8YaCcmJw=",
   "Source": "FacebookClone",
   "BasePath": "_content/FacebookClone",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "FacebookClone\\wwwroot",
       "Source": "FacebookClone",
-      "ContentRoot": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\",
+      "ContentRoot": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\wwwroot\\",
       "BasePath": "_content/FacebookClone",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\93m7x8vo4e-ahy0e716w3.gz",
+      "Identity": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\93m7x8vo4e-ahy0e716w3.gz",
       "SourceId": "FacebookClone",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\",
+      "ContentRoot": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/FacebookClone",
       "RelativePath": "test-chat#[.{fingerprint=ahy0e716w3}]?.html.gz",
       "AssetKind": "All",
@@ -28,20 +28,20 @@
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\test-chat.html",
+      "RelatedAsset": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\wwwroot\\test-chat.html",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
       "Fingerprint": "1a2weab3ug",
       "Integrity": "iXlGf/g9FrUJBTAmvmeunS8ZMA9sPj/tdONcGNRlslk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\test-chat.html"
+      "OriginalItemSpec": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\wwwroot\\test-chat.html"
     },
     {
-      "Identity": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\yxtswum0w1-elji2nl7l0.gz",
+      "Identity": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\yxtswum0w1-elji2nl7l0.gz",
       "SourceId": "FacebookClone",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\",
+      "ContentRoot": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/FacebookClone",
       "RelativePath": "signalr-client#[.{fingerprint=elji2nl7l0}]?.html.gz",
       "AssetKind": "All",
@@ -49,20 +49,20 @@
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\signalr-client.html",
+      "RelatedAsset": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\wwwroot\\signalr-client.html",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
       "Fingerprint": "tssz5hlf3x",
       "Integrity": "c2poQKC7we7gRHhirfpjY/lMRPN3GEVnjybzzcT1nT8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\signalr-client.html"
+      "OriginalItemSpec": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\wwwroot\\signalr-client.html"
     },
     {
-      "Identity": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\signalr-client.html",
+      "Identity": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\wwwroot\\signalr-client.html",
       "SourceId": "FacebookClone",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\",
+      "ContentRoot": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\wwwroot\\",
       "BasePath": "_content/FacebookClone",
       "RelativePath": "signalr-client#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\signalr-client.html"
     },
     {
-      "Identity": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\test-chat.html",
+      "Identity": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\wwwroot\\test-chat.html",
       "SourceId": "FacebookClone",
       "SourceType": "Discovered",
-      "ContentRoot": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\",
+      "ContentRoot": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\wwwroot\\",
       "BasePath": "_content/FacebookClone",
       "RelativePath": "test-chat#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -104,7 +104,7 @@
   "Endpoints": [
     {
       "Route": "signalr-client.elji2nl7l0.html",
-      "AssetFile": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\yxtswum0w1-elji2nl7l0.gz",
+      "AssetFile": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\yxtswum0w1-elji2nl7l0.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -167,7 +167,7 @@
     },
     {
       "Route": "signalr-client.elji2nl7l0.html",
-      "AssetFile": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\signalr-client.html",
+      "AssetFile": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\wwwroot\\signalr-client.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -212,7 +212,7 @@
     },
     {
       "Route": "signalr-client.elji2nl7l0.html.gz",
-      "AssetFile": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\yxtswum0w1-elji2nl7l0.gz",
+      "AssetFile": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\yxtswum0w1-elji2nl7l0.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -265,7 +265,7 @@
     },
     {
       "Route": "signalr-client.html",
-      "AssetFile": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\yxtswum0w1-elji2nl7l0.gz",
+      "AssetFile": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\yxtswum0w1-elji2nl7l0.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -320,7 +320,7 @@
     },
     {
       "Route": "signalr-client.html",
-      "AssetFile": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\signalr-client.html",
+      "AssetFile": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\wwwroot\\signalr-client.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -357,7 +357,7 @@
     },
     {
       "Route": "signalr-client.html.gz",
-      "AssetFile": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\yxtswum0w1-elji2nl7l0.gz",
+      "AssetFile": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\yxtswum0w1-elji2nl7l0.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -402,7 +402,7 @@
     },
     {
       "Route": "test-chat.ahy0e716w3.html",
-      "AssetFile": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\93m7x8vo4e-ahy0e716w3.gz",
+      "AssetFile": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\93m7x8vo4e-ahy0e716w3.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -465,7 +465,7 @@
     },
     {
       "Route": "test-chat.ahy0e716w3.html",
-      "AssetFile": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\test-chat.html",
+      "AssetFile": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\wwwroot\\test-chat.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -510,7 +510,7 @@
     },
     {
       "Route": "test-chat.ahy0e716w3.html.gz",
-      "AssetFile": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\93m7x8vo4e-ahy0e716w3.gz",
+      "AssetFile": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\93m7x8vo4e-ahy0e716w3.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -563,7 +563,7 @@
     },
     {
       "Route": "test-chat.html",
-      "AssetFile": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\93m7x8vo4e-ahy0e716w3.gz",
+      "AssetFile": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\93m7x8vo4e-ahy0e716w3.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -618,7 +618,7 @@
     },
     {
       "Route": "test-chat.html",
-      "AssetFile": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\test-chat.html",
+      "AssetFile": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\wwwroot\\test-chat.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -655,7 +655,7 @@
     },
     {
       "Route": "test-chat.html.gz",
-      "AssetFile": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\93m7x8vo4e-ahy0e716w3.gz",
+      "AssetFile": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\obj\\Debug\\net9.0\\compressed\\93m7x8vo4e-ahy0e716w3.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {

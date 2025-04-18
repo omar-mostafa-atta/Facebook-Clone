@@ -9,6 +9,6 @@ namespace FacebookClone.Core.DTO
 {
 	public class UploadUserPictureDTO
 	{
-		public IFormFile formFile;
+		public IFormFile formFile {  get; set; }
 	}
 }

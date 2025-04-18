@@ -1,11 +1,11 @@
 {
   "Files": [
     {
-      "Id": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\signalr-client.html",
+      "Id": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\wwwroot\\signalr-client.html",
       "PackagePath": "staticwebassets\\signalr-client.html"
     },
     {
-      "Id": "F:\\omarapi\\FacebookClone\\FacebookClone\\wwwroot\\test-chat.html",
+      "Id": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\wwwroot\\test-chat.html",
       "PackagePath": "staticwebassets\\test-chat.html"
     },
     {

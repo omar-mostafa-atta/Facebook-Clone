@@ -1,14 +1,6 @@
 ﻿using FacebookClone.Core.DTO;
-using FacebookClone.Core.Models;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
-
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authorization;
-using Newtonsoft.Json.Linq;
 
 namespace FacebookClone.Controllers
 {
@@ -75,7 +67,7 @@ namespace FacebookClone.Controllers
 
 
 		[HttpGet("ForgotPassword/{email}")]
-		public async Task<IActionResult> ForgotPassword(string email)
+		public async Task<IActionResult> ForgotPassword([FromRoute] string email)
 		{
 
 			var result = await _auth.ForgotPasswordAsync(email);

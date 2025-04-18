@@ -9324,11 +9324,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\omarapi\\FacebookClone\\FacebookClone\\FacebookClone.csproj",
+      "projectUniqueName": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\FacebookClone.csproj",
       "projectName": "FacebookClone",
-      "projectPath": "F:\\omarapi\\FacebookClone\\FacebookClone\\FacebookClone.csproj",
+      "projectPath": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\FacebookClone.csproj",
       "packagesPath": "C:\\Users\\omar\\.nuget\\packages\\",
-      "outputPath": "F:\\omarapi\\FacebookClone\\FacebookClone\\obj\\",
+      "outputPath": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -9349,8 +9349,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "F:\\omarapi\\FacebookClone\\FacebookClone.EF\\FacebookClone.EF.csproj": {
-              "projectPath": "F:\\omarapi\\FacebookClone\\FacebookClone.EF\\FacebookClone.EF.csproj"
+            "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone.EF\\FacebookClone.EF.csproj": {
+              "projectPath": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone.EF\\FacebookClone.EF.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EY6nNu8FJ/0=",
+  "dgSpecHash": "hOhr85jY+Kw=",
   "success": true,
-  "projectFilePath": "F:\\omarapi\\FacebookClone\\FacebookClone\\FacebookClone.csproj",
+  "projectFilePath": "F:\\omarapi\\FacebookCloneGithub\\FacebookClone\\Facebook-Clone\\FacebookClone\\FacebookClone.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\omar\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\omar\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

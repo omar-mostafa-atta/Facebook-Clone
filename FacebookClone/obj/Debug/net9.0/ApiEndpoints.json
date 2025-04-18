@@ -178,7 +178,7 @@
   {
     "ContainingType": "FacebookClone.Controllers.CommentController",
     "Method": "GetPostComments",
-    "RelativePath": "api/Comment/GetPostComments/{postid}",
+    "RelativePath": "api/Comment/GetPostComments/{postId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -204,7 +204,7 @@
   {
     "ContainingType": "FacebookClone.API.Controllers.FriendshipController",
     "Method": "GetPendingRequests",
-    "RelativePath": "api/Friendship/pending-requests",
+    "RelativePath": "api/Friendship/pendingRequests",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -230,7 +230,7 @@
   {
     "ContainingType": "FacebookClone.API.Controllers.FriendshipController",
     "Method": "SendFriendRequest",
-    "RelativePath": "api/Friendship/send-request",
+    "RelativePath": "api/Friendship/sendRequest",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -407,19 +407,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "OriginalPostId",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "Text",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "MediaFiles",
-        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
-        "IsRequired": false
+        "Name": "sharePostDto",
+        "Type": "FacebookClone.Core.DTO.SharePostDTO",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -659,7 +649,7 @@
   {
     "ContainingType": "FacebookClone.Controllers.UserController",
     "Method": "GetUserProfile",
-    "RelativePath": "api/User/GetUserProfile",
+    "RelativePath": "api/User/GetUserProfile/{userId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -667,7 +657,7 @@
       {
         "Name": "userId",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -681,9 +671,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "uploadUserPictureDTO",
-        "Type": "FacebookClone.Core.DTO.UploadUserPictureDTO",
-        "IsRequired": true
+        "Name": "formFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -697,9 +687,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "uploadUserPictureDTO",
-        "Type": "FacebookClone.Core.DTO.UploadUserPictureDTO",
-        "IsRequired": true
+        "Name": "formFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

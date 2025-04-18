@@ -19,7 +19,7 @@ namespace FacebookClone.Controllers
 
 		[HttpPost("UploadProfilePicture")]
 		[Authorize]
-		public async Task<IActionResult> UploadProfilePicture(UploadUserPictureDTO uploadUserPictureDTO)
+		public async Task<IActionResult> UploadProfilePicture([FromForm] UploadUserPictureDTO uploadUserPictureDTO)
 		{
 			return await HandleRequest(async () =>
 			{
@@ -36,7 +36,7 @@ namespace FacebookClone.Controllers
 
 		[HttpPost("UploadBackGroundPicture")]
 		[Authorize]
-		public async Task<IActionResult> UploadBackGroundPicture(UploadUserPictureDTO uploadUserPictureDTO)
+		public async Task<IActionResult> UploadBackGroundPicture([FromForm] UploadUserPictureDTO uploadUserPictureDTO)
 		{
 			return await HandleRequest(async () =>
 			{
@@ -97,9 +97,10 @@ namespace FacebookClone.Controllers
 
 		}
 
-		[HttpGet("GetUserProfile")]
-		
-		public async Task<IActionResult> GetUserProfile([FromQuery]string userId)
+		[HttpGet("GetUserProfile/{userId}")]
+		[Authorize]
+
+		public async Task<IActionResult> GetUserProfile(string userId)
 		{
 			return await HandleRequest(async () =>
 			{

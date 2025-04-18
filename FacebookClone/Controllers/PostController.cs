@@ -64,6 +64,7 @@ namespace FacebookClone.Controllers
 		}
 
 		[HttpGet("Get/{id}")]
+		[Authorize]
 		public async Task<ActionResult<PostDTO>> GetPost(string id)
 		{
 			return await HandleRequest<PostDTO>(async () =>
@@ -101,7 +102,7 @@ namespace FacebookClone.Controllers
 		
 		[HttpPost("share")]
 		[Authorize]
-		public async Task<IActionResult> SharePost([FromForm] SharePostDTO sharePostDto)
+		public async Task<IActionResult> SharePost( SharePostDTO sharePostDto)
 		{
 			var userId = Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
 			 
@@ -110,6 +111,7 @@ namespace FacebookClone.Controllers
 		}
 
 		[HttpGet("GetUserPosts/{id}")]
+		[Authorize]
 		public async Task<ActionResult<List<PostDTO>>> GetUserPosts(
 		string id,
 		[FromQuery] int pageNumber = 1,

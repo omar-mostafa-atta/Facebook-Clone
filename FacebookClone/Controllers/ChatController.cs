@@ -43,7 +43,7 @@ namespace FacebookClone.Controllers
 		}
 		[HttpDelete("delete/{messageId}")]
 		[Authorize]
-		public async Task<IActionResult> DeleteMessage(string messageId)
+		public async Task<IActionResult> DeleteMessage([FromRoute] string messageId)
 		{
 			try
 			  {

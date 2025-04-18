@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FacebookClone.EF.Migrations
 {
     [DbContext(typeof(FacebookContext))]
-    [Migration("20250329082718_fixadmin")]
-    partial class fixadmin
+    [Migration("20250418131726_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,6 +61,9 @@ namespace FacebookClone.EF.Migrations
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Activated")
+                        .HasColumnType("bit");
 
                     b.Property<string>("BackgroundPicturePublicId")
                         .HasColumnType("nvarchar(max)");
@@ -295,10 +298,15 @@ namespace FacebookClone.EF.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Text")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TotalComments")
+                        .HasColumnType("int");
+
                     b.Property<int>("TotalReactions")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalShares")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedAt")

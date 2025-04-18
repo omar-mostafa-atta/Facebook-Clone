@@ -51,7 +51,7 @@ namespace FacebookClone.Controllers
 		}
 
 		[HttpGet("GetReactions/{postId}")]
-		public async Task<IActionResult> GetReaction(string postId,[FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+		public async Task<IActionResult> GetReaction([FromRoute] string postId, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
 		{
 			return await HandleRequest(async () =>
 			{
